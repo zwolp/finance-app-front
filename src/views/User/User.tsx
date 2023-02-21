@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
-
+import { AddUserForm } from "../../components/User/AddUser/AddUserForm";
+import { OneUser } from "../../components/User/OneUser/OneUser";
+/* import { OneUser } from "../../components/User/OneUser/OneUser"; */
+type UserRecord = {
+  id: string,
+  name: string,
+  surname: string,
+  job: string,
+}
 export const User = () => {
-  const [user, setUser] =useState('');
-
+  const [users, setUsers] = useState<UserRecord[]>([]);
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch(`http://localhost:3001/user/12345`);
-        const data = await res.json();
-        setUser(data)
-      } catch (err) {
-        console.log(err);
+        const res = await fetch('http://localhost:3001/user');
+        const data = await res.json() as UserRecord[];
+        setUsers(data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
       }
     })();
-  })
-
+  },[]);
   return <>
-    <h2>{user}</h2>
+    <ul className="userList">
+      {users.map(user => (<OneUser key={user.id} id={user.id} name={user.name} surname={user.surname} job={user.job}/>))}
+    </ul>
+    <AddUserForm/>
   </>
 }

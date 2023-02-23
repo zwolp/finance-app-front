@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
+import './AddUserForm.css'
 
 export const AddUserForm = () => {
   const [user, setUser] = useState({
@@ -26,20 +27,25 @@ export const AddUserForm = () => {
   }
 
   return (
-    <form onSubmit={saveUser}>
-      <label>
-        <p>Imię:</p>
-        <input type="text" value={user.name} onChange={e => setUser({...user, name: e.target.value})}/>
-      </label>
-      <label>
-        <p>Nazwisko:</p>
-        <input type="text" value={user.surname} onChange={e => setUser({...user, surname: e.target.value})}/>
-      </label>
-      <label>
-        <p>Praca:</p>
-        <input type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
-      </label>
-      <input type="submit" />
-    </form>
+    <div className="position-fixed-container">
+      <div className="form-container">
+        <h3 className="form-title">Dodaj użytkownika</h3>
+        <form onSubmit={saveUser}>
+          <label>
+            <p>Imię:</p>
+            <input type="text" value={user.name} onChange={e => setUser({...user, name: e.target.value})}/>
+          </label>
+          <label>
+            <p>Nazwisko:</p>
+            <input type="text" value={user.surname} onChange={e => setUser({...user, surname: e.target.value})}/>
+          </label>
+          <label>
+            <p>Praca:</p>
+            <input type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
+          </label>
+          <input type="submit" className="btn"/>
+        </form>
+      </div>
+    </div>
   )
 }

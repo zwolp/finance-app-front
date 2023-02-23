@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { AddUserForm } from "../../components/User/AddUser/AddUserForm";
-import { OneUser } from "../../components/User/OneUser/OneUser";
-/* import { OneUser } from "../../components/User/OneUser/OneUser"; */
-type UserRecord = {
-  id: string,
-  name: string,
-  surname: string,
-  job: string,
-}
+import { UsersList } from "../../components/User/UsersList/UsersList";
+import { UserRecord } from "../../types/UserRecord";
+
 export const User = () => {
   const [users, setUsers] = useState<UserRecord[]>([]);
+
   useEffect(() => {
     (async () => {
       try {
@@ -22,10 +18,9 @@ export const User = () => {
       }
     })();
   },[]);
+
   return <>
-    <ul className="userList">
-      {users.map(user => (<OneUser key={user.id} id={user.id} name={user.name} surname={user.surname} job={user.job}/>))}
-    </ul>
+    <UsersList list={users}/>
     <AddUserForm/>
   </>
 }

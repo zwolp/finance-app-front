@@ -1,0 +1,14 @@
+.user {
+  margin: 8px;
+  padding: 25px 0;
+  width: calc(25% - 16px);
+  text-align: center;
+  color: white;
+  background-color: #98b1c7;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.user:hover {
+  background-color: #c8dbec;
+}

@@ -6,6 +6,10 @@ import { UserRecord } from "../../types/UserRecord";
 export const User = () => {
   const [users, setUsers] = useState<UserRecord[]>([]);
 
+  const handleClick = (e: any) => {
+    return e;
+  }
+
   useEffect(() => {
     (async () => {
       try {
@@ -20,7 +24,7 @@ export const User = () => {
   },[]);
 
   return <>
-    <UsersList list={users}/>
+    <UsersList list={users} handleClick={handleClick}/>
     <AddUserForm/>
   </>
 }

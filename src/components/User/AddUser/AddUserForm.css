@@ -15,8 +15,13 @@
   border-radius: 10px;
 }
 
+form {
+  text-align: center;
+}
+
 .form-title {
   margin: 0 auto 10px;
+  color: white;
 }
 
 label {

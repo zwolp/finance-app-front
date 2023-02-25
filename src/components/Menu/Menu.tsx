@@ -6,9 +6,21 @@ import "./Menu.css"
 export const Menu = () => {
   return (
     <header>
-      <NavLink to='/'><Btn><p>home</p></Btn></NavLink>
-      <NavLink to='/user'><Btn><p>user</p></Btn></NavLink>
-      <NavLink to='/news'><Btn><p>news</p></Btn></NavLink>
+      <NavLink 
+        to='/' 
+        className={({ isActive }) => isActive ? 'active' : undefined}>
+          <Btn><p>home</p></Btn>
+      </NavLink>
+      <NavLink 
+        to='/user'
+        className={({ isActive }) => isActive ? 'active' : undefined}>
+          <Btn><p>user</p></Btn>
+      </NavLink>
+      <NavLink 
+        to='/news'
+          className={({ isActive }) => isActive ? 'active' : undefined}>
+          <Btn><p>news</p></Btn>
+      </NavLink>
     </header>
   )
 }

@@ -1,15 +1,21 @@
 import React from "react";
-import { UserRecord } from "../../../types/UserRecord";
-import { OneUser } from "../OneUser/OneUser";
+import { UserPersonal } from "../../../types/User";
+import { UserRecord } from "../UserRecord/UserRecord";
 import './UserList.css'
 
 type Props = {
-  list: UserRecord[],
-  handleClick?: any
+  list: UserPersonal[],
 }
 
 export const UsersList = (props: Props) => (
   <ul className="userList">
-    {props.list.map(user => (<OneUser key={user.id} id={user.id} name={user.name} surname={user.surname} job={user.job} handle={props.handleClick}/>))}
+    {props.list.map(user => (
+      <UserRecord 
+        key={user.id} 
+        id={user.id} 
+        name={user.name} 
+        surname={user.surname} 
+        job={user.job}/>
+    ))}
   </ul>
 )

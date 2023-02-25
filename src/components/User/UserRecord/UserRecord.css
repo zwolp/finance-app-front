@@ -1,7 +1,6 @@
 .user {
   margin: 8px;
-  padding: 25px 0;
-  width: calc(25% - 16px);
+  width: calc(33% - 16px);
   text-align: center;
   color: white;
   background-color: #98b1c7;
@@ -11,4 +10,19 @@
 
 .user:hover {
   background-color: #c8dbec;
+}
+
+.user-link {
+  display: block;
+  margin: 0;
+  padding: 30px 0;
+  width: 100%;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.job {
+  color: black;
 }

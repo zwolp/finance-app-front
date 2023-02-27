@@ -4,7 +4,7 @@ import { Loading } from "../../components/common/Loading/Loading";
 import { AddFinanceForm } from "../../components/User/AddFinance/AddFinanceForm";
 import { UserRecordFinance } from "../../components/User/UserRecordFinance/UserRecordFinance";
 import { UserRecordPersonal } from "../../components/User/UserRecordPersonal/UserRecordPersonal";
-import { Finance, User } from "../../types/User";
+import { User } from "../../types/User";
 
 export const SingleUser = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -23,6 +23,6 @@ export const SingleUser = () => {
   }
   return <>
     <UserRecordPersonal user={user}/>
-    {user.finance ? <UserRecordFinance financeId={user.finance}/> : <p>formularz</p> }
+    {user.finance ? <UserRecordFinance financeId={user.finance}/> : <AddFinanceForm id={id}/>}
   </>
 }

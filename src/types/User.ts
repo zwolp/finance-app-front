@@ -15,5 +15,5 @@ export type User = {
     name: string,
     surname: string,
     job: string,
-    finance: string,
+    finance: string | null,
 }

@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Loading } from "../../components/common/Loading/Loading";
+import { AddFinanceForm } from "../../components/User/AddFinance/AddFinanceForm";
+import { UserRecordFinance } from "../../components/User/UserRecordFinance/UserRecordFinance";
 import { UserRecordPersonal } from "../../components/User/UserRecordPersonal/UserRecordPersonal";
-import { User } from "../../types/User";
+import { Finance, User } from "../../types/User";
 
 export const SingleUser = () => {
   const [user, setUser] = useState<User | null>(null);
-
   const {id} = useParams()
-  console.log(id);
 
   useEffect(() => {
     (async () => {
@@ -17,7 +18,11 @@ export const SingleUser = () => {
     })();
   },[id]);
 
-return <>
-  <UserRecordPersonal user={user}/>
-</>
+  if (user === null) {
+    return <Loading/>
+  }
+  return <>
+    <UserRecordPersonal user={user}/>
+    {user.finance ? <UserRecordFinance financeId={user.finance}/> : <p>formularz</p> }
+  </>
 }

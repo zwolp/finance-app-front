@@ -12,9 +12,13 @@ export const SingleUser = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch('http://localhost:3001/user/' + id);
-      const data = await res.json();
-      setUser(data);
+      try {
+        const res = await fetch('http://localhost:3001/user/' + id);
+        const data = await res.json();
+        setUser(data);
+      } catch (e) {
+        console.log(e);
+      }
     })();
   },[id]);
 

@@ -15,5 +15,13 @@ export type User = {
     name: string,
     surname: string,
     job: string,
-    finance: string | null,
+    financeId: string | null,
+}
+
+export type financeProductRecord = {
+  id: number,
+  financeId: string,
+  productId: string,
+  startDate: string,
+  resources: number,
 }

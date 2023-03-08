@@ -8,7 +8,7 @@ type Props = {
 export const Btn = (props: Props) => {
 
   return (
-    <button>
+    <button className="btn">
       {props.children}
     </button>
   )

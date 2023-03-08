@@ -30,7 +30,7 @@ label {
   margin: 5px 10px;
 }
 
-input {
+.form-input {
   width: 63%;
   background-color: #c8dbec;
   text-align: center;
@@ -39,7 +39,7 @@ input {
   outline: none;
 }
 
-input:focus {
+.form-input:focus {
   background-color: #e2effc;
 }
 

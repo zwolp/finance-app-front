@@ -6,7 +6,7 @@ export type UserPersonal = {
 }
 
 export type Finance = {
-  'monthly expanse': number;
+  monthlyExpanse: number;
   salary: number;
   savings: number;
 }

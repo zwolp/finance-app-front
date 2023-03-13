@@ -14,8 +14,8 @@ export const FinanceRecord = (props: Props) => {
 
   return (
     <ul>
-      <FinanceRow title="Miesięczne zarobki" data={props.salary} change="podwyżka"/>
-      <FinanceRow title="Miesięczne wydatki" data={props.expanse} change="niespodziewany wydatek"/>
+      <FinanceRow title="Miesięczne zarobki" data={props.salary}/>
+      <FinanceRow title="Miesięczne wydatki" data={props.expanse}/>
       <FinanceRow title="Wolne oszczędności" data={props.savings > financialCushion ?
          props.savings - financialCushion : 
          `Przed inwestycjami należy odłożyć oszczędności w wysokości: ${financialCushion} pozostało jeszcze: ${financialCushion - props.savings}`} />

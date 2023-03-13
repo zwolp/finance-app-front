@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
-import './AddUserForm.css'
+import './AddUserForm.scss'
 
 export const AddUserForm = () => {
   const [user, setUser] = useState({

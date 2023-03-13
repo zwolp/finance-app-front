@@ -1,15 +1,17 @@
+@import 'src/config/variables.scss';
+
 .user {
   margin: 8px;
   width: calc(33% - 16px);
   text-align: center;
   color: white;
-  background-color: #98b1c7;
+  background-color: $primary-color;
   border-radius: 10px;
   cursor: pointer;
 }
 
 .user:hover {
-  background-color: #c8dbec;
+  background-color: $secondary-color;
 }
 
 .user-link {

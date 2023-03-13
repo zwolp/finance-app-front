@@ -1,7 +1,7 @@
 import React from "react";
 import { UserPersonal } from "../../../types/User";
 import { UserRecord } from "../UserRecord/UserRecord";
-import './UserList.css'
+import './UserList.scss'
 
 type Props = {
   list: UserPersonal[],

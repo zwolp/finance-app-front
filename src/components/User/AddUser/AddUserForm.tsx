@@ -1,5 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
-import './AddUserForm.css'
+import './AddUserForm.scss'
 
 export const AddUserForm = () => {
   const [user, setUser] = useState({
@@ -33,15 +33,15 @@ export const AddUserForm = () => {
         <form onSubmit={saveUser}>
           <label>
             <p>Imię:</p>
-            <input type="text" value={user.name} onChange={e => setUser({...user, name: e.target.value})}/>
+            <input className="form-input" type="text" value={user.name} onChange={e => setUser({...user, name: e.target.value})}/>
           </label>
           <label>
             <p>Nazwisko:</p>
-            <input type="text" value={user.surname} onChange={e => setUser({...user, surname: e.target.value})}/>
+            <input className="form-input" type="text" value={user.surname} onChange={e => setUser({...user, surname: e.target.value})}/>
           </label>
           <label>
             <p>Praca:</p>
-            <input type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
+            <input className="form-input" type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
           </label>
           <input type="submit" className="btn"/>
         </form>

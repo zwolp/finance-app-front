@@ -11,6 +11,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
+      <p>DODAĆ MOŻLIWOŚĆ DODAWANIA PRODUKTU FINANSOWEGO DO KONTA UŻYTKOWNIKA</p>
     </BrowserRouter>
   </React.StrictMode>
 );

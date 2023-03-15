@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Finance, financeProductRecord } from "../../../types/User";
 import { Error } from "../../common/Error/Error";
 import { Loading } from "../../common/Loading/Loading";
-import { FinanceChanges } from "../../Finance/FinanceChanges";
+import { FinanceChanges } from "../../Finance/FinanceChanges/FinanceChanges";
 import { FinanceProductsList } from "../../Product/FinanceProduct/FinanceProductsList";
 import { FinanceRecord } from "../../Finance/FinanceRecord/FinanceRecord";
 import { ProductList } from "../../Product/Product/ProductList";
@@ -55,7 +55,7 @@ export const UserRecordFinance = (props: Props) => {
   if (finance) {
     return <>
       <FinanceRecord salary={finance.salary} expanse={finance.monthlyExpanse} savings={finance.savings}/>
-      <FinanceChanges/>
+      <FinanceChanges financeId={props.financeId} salary={finance.salary} monthlyExpanse={finance.monthlyExpanse} savings= {finance.savings}/>
       {financeAndProductsList && <FinanceProductsList list={financeAndProductsList}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>

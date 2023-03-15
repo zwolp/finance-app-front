@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Product } from "../../../types/Product";
+import { AddPanel } from "./AddPanel";
 
 type Props = {
   product: Product,
-  financeId: string,
+  func: any,
 }
 
 export const ProductRow = (props: Props) => {
   const {name, annualInterestRate, durationInDays, minContribution, maxContribution, description} = props.product;
 
+  const [displayAddPanel, setDisplayAddPanel] = useState<boolean>(false);
+
   const handleClick = (e: React.MouseEvent) => {
-    const confirm = window.confirm(`Czy chcesz skorzystać z produktu ${name}`);
-    console.log(confirm);
+    displayAddPanel ? setDisplayAddPanel(false) : setDisplayAddPanel(true)
   }
 
-  return <li onClick={handleClick}>
-    <p>{name}</p>
-    <p>{annualInterestRate} % w skali roku</p>
-    <p>Okres {durationInDays} dni</p>
-    <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
-    <p>{description && description}</p>
-  </li>
+  return <>
+    <li onClick={handleClick}>
+      <p>{name}</p>
+      <p>{annualInterestRate} % w skali roku</p>
+      <p>Okres {durationInDays} dni</p>
+      <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
+      <p>{description && description}</p>
+    </li>
+    {displayAddPanel && <AddPanel/>}
+  </>
 }

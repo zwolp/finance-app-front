@@ -10,6 +10,10 @@ type Props = {
 export const ProductList = (props: Props) => {
   const [list, setList] = useState<Product[]>([])
 
+  const handleClick = (obj: Product) => {
+    console.log(obj);
+  }
+
   const handleProducts = async () => {
     try {
     const res = await fetch('http://localhost:3001/product');
@@ -29,6 +33,6 @@ export const ProductList = (props: Props) => {
   }
 
   return <ul className="productsList">
-    {list.map(obj => <ProductRow key={obj.id} product={obj} financeId={props.financeId}/>)}
+    {list.map(obj => <ProductRow key={obj.id} product={obj} func={() => handleClick(obj)}/>)}
   </ul>
 }

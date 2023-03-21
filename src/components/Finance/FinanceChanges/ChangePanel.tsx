@@ -24,6 +24,7 @@ export const ChangePanel =  (props: Props) => {
       },
       body: JSON.stringify({[valueName]: value})
     })
+    window.location.reload();
   }
 
   return <>

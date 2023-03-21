@@ -18,7 +18,6 @@ export const ProductOfUser = (props: Props) => {
       try {
         const res = await fetch('http://localhost:3001/product/' + props.id);
         const data = await res.json();
-        console.log(data);
         setProduct(data);
       } catch (e) {
         console.log(e);

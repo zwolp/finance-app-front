@@ -22,8 +22,8 @@ export const UserRecordFinance = (props: Props) => {
     try {
       const res = await fetch('http://localhost:3001/finance/' + props.financeId);
       const data = await res.json();
-      setFinance(data);
-      setLoading(false);
+      await setFinance(data);
+      await setLoading(false);
     } catch (e) {
       console.log(e);
       setError('Wystąpił błąd, spróbuj później.');
@@ -34,7 +34,7 @@ export const UserRecordFinance = (props: Props) => {
     try {
       const res = await fetch('http://localhost:3001/product/user/' + props.financeId);
       const data = await res.json();
-      setFinanceAndProductsList(data);
+      await setFinanceAndProductsList(data);
     } catch (e) {
       console.log(e);
     }
@@ -59,7 +59,7 @@ export const UserRecordFinance = (props: Props) => {
       {financeAndProductsList && <FinanceProductsList list={financeAndProductsList}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>
-        {displayProducts && <ProductList financeId={props.financeId}/>}
+        {displayProducts && <ProductList financeId={props.financeId} userSavings={finance.savings}/>}
       </div>
   </>
   }

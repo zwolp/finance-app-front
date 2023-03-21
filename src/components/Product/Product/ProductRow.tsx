@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 import { Product } from "../../../types/Product";
-import { AddPanel } from "./AddPanel";
+import { AddPanel } from "../FinanceProduct/AddPanel";
 
 type Props = {
   product: Product,
-  func: any,
+  financeId: string,
+  userSavings: number,
 }
 
 export const ProductRow = (props: Props) => {
-  const {name, annualInterestRate, durationInDays, minContribution, maxContribution, description} = props.product;
+  const {id, name, annualInterestRate, durationInDays, minContribution, maxContribution, description} = props.product;
 
   const [displayAddPanel, setDisplayAddPanel] = useState<boolean>(false);
 
@@ -24,6 +25,6 @@ export const ProductRow = (props: Props) => {
       <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
       <p>{description && description}</p>
     </li>
-    {displayAddPanel && <AddPanel/>}
+    {displayAddPanel && <AddPanel financeId={props.financeId} productId={id} userSavings={props.userSavings}/>}
   </>
 }

@@ -7,12 +7,11 @@ type Props = {
 };
 
 export const FinanceProductsList = (props: Props) => {
-
   
   return (
     <ul>
-    {props.list && props.list.map(obj => (
-      <li key={obj.productId}>
+    {props.list && props.list.map((obj, i) => (
+      <li key={i}>
         <ProductOfUser 
           id={obj.productId}
           startDate={obj.startDate}

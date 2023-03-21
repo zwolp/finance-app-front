@@ -5,14 +5,15 @@ import { ProductRow } from "./ProductRow";
 
 type Props = {
   financeId: string,
+  userSavings: number,
 };
 
 export const ProductList = (props: Props) => {
   const [list, setList] = useState<Product[]>([])
-
+/* 
   const handleClick = (obj: Product) => {
     console.log(obj);
-  }
+  } */
 
   const handleProducts = async () => {
     try {
@@ -33,6 +34,7 @@ export const ProductList = (props: Props) => {
   }
 
   return <ul className="productsList">
-    {list.map(obj => <ProductRow key={obj.id} product={obj} func={() => handleClick(obj)}/>)}
+    {list.map((obj, i) => {
+    return <ProductRow key={i} financeId={props.financeId} product={obj} userSavings={props.userSavings}/>})}
   </ul>
 }

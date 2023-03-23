@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Finance, financeProductRecord } from "../../../types/User";
+import React, { useEffect, useState } from "react";/* 
+import { Finance, financeProductRecord } from "../../../types/User"; */
+import { Finance, financeProductRecord } from "types";
 import { Error } from "../../common/Error/Error";
 import { Loading } from "../../common/Loading/Loading";
 import { FinanceChanges } from "../../Finance/FinanceChanges/FinanceChanges";
 import { FinanceProductsList } from "../../Product/FinanceProduct/FinanceProductsList";
 import { FinanceRecord } from "../../Finance/FinanceRecord/FinanceRecord";
 import { ProductList } from "../../Product/Product/ProductList";
+import './UserRecordFinance.scss';
 
 type Props = {
   financeId: string;
@@ -56,7 +58,7 @@ export const UserRecordFinance = (props: Props) => {
     return <>
       <FinanceRecord salary={finance.salary} expanse={finance.monthlyExpanse} savings={finance.savings}/>
       <FinanceChanges financeId={props.financeId} salary={finance.salary} monthlyExpanse={finance.monthlyExpanse} savings= {finance.savings}/>
-      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList}/>}
+      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>
         {displayProducts && <ProductList financeId={props.financeId} userSavings={finance.savings}/>}

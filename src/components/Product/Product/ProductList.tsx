@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Product } from "../../../types/Product";
+import { Product } from "types";
 import { Loading } from "../../common/Loading/Loading";
 import { ProductRow } from "./ProductRow";
 
@@ -10,10 +10,6 @@ type Props = {
 
 export const ProductList = (props: Props) => {
   const [list, setList] = useState<Product[]>([])
-/* 
-  const handleClick = (obj: Product) => {
-    console.log(obj);
-  } */
 
   const handleProducts = async () => {
     try {

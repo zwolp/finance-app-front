@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './views/Home/Home';
 import { User } from './views/Users/Users';
 import { News } from './views/News/News';
+import { SingleUser } from './views/SingleUser/SingleUser';
 import { Menu } from './components/Menu/Menu';
 import "./App.css"
-import { SingleUser } from './views/SingleUser/SingleUser';
 
 export const App = () => {
   return (

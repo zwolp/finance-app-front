@@ -4,7 +4,7 @@ import { Loading } from "../../components/common/Loading/Loading";
 import { AddFinanceForm } from "../../components/Finance/AddFinance/AddFinanceForm";
 import { UserRecordFinance } from "../../components/User/UserRecordFinance/UserRecordFinance";
 import { UserRecordPersonal } from "../../components/User/UserRecordPersonal/UserRecordPersonal";
-import { User } from "../../types/User";
+import { User } from "types";
 import './SingleUser.css'
 
 export const SingleUser = () => {

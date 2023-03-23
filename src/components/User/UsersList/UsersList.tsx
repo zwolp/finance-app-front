@@ -1,5 +1,5 @@
 import React from "react";
-import { UserPersonal } from "../../../types/User";
+import { UserPersonal } from "types"
 import { UserRecord } from "../UserRecord/UserRecord";
 import './UserList.scss'
 

@@ -23,8 +23,9 @@ export const AddFinanceForm = (props: Props) => {
         body: JSON.stringify(finance)
       });
 
-      const data = await res.json();
-      console.log(data);
+      if (res.status === 200) {
+        window.location.reload();
+      }
     } catch (e) {
       console.log(e);
     }

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import './UserRecord.css'
+import './UserRecord.scss'
 
 type Props = {
   id: string,

@@ -5,7 +5,8 @@ import { ProductRow } from "./ProductRow";
 
 type Props = {
   financeId: string,
-  userSavings: number,
+  savings: number,
+  monthlyExpanse: number,
 };
 
 export const ProductList = (props: Props) => {
@@ -14,7 +15,7 @@ export const ProductList = (props: Props) => {
   const handleProducts = async () => {
     try {
     const res = await fetch('http://localhost:3001/product');
-    const data = await res.json()
+    const data = (await res.json()) as Product[];
     setList(data)
     } catch (e) {
       console.log(e);
@@ -31,6 +32,6 @@ export const ProductList = (props: Props) => {
 
   return <ul className="productsList">
     {list.map((obj, i) => {
-    return <ProductRow key={i} financeId={props.financeId} product={obj} userSavings={props.userSavings}/>})}
+    return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>})}
   </ul>
 }

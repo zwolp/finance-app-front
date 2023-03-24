@@ -5,7 +5,8 @@ import { AddPanel } from "../FinanceProduct/AddPanel";
 type Props = {
   product: Product,
   financeId: string,
-  userSavings: number,
+  savings: number,
+  monthlyExpanse: number,
 }
 
 export const ProductRow = (props: Props) => {
@@ -25,6 +26,6 @@ export const ProductRow = (props: Props) => {
       <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
       <p>{description && description}</p>
     </li>
-    {displayAddPanel && <AddPanel financeId={props.financeId} productId={id} userSavings={props.userSavings}/>}
+    {displayAddPanel && <AddPanel financeId={props.financeId} productId={id} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>}
   </>
 }

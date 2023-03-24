@@ -1,11 +1,13 @@
 import React, { useState } from "react";
+import { FinancialOperations } from "../../../utils/financeOperation";
 import { financeProductRecord } from "types";
 import { currentDateToSend} from "../../../utils/getDate";
 
 type Props = {
   financeId: string,
   productId: string,
-  userSavings: number,
+  savings: number,
+  monthlyExpanse: number,
 }
 
 export const AddPanel = (props: Props) => {
@@ -13,6 +15,7 @@ export const AddPanel = (props: Props) => {
   const [error, setError] = useState<string>('');
 
   const postProduct = async (body: financeProductRecord) => {
+    console.log(props.savings);
     try {
       const res = await fetch('http://localhost:3001/product/add-product', {
       method: 'POST',
@@ -48,7 +51,7 @@ export const AddPanel = (props: Props) => {
       setError('Nie prawidłowa wartość');
       return;
     };
-    if (value > props.userSavings) {
+    if (value > props.savings - FinancialOperations.financialCushion(props.monthlyExpanse)) {
       setError('Brak wolnych oszczędności');
       return;
     };
@@ -61,7 +64,7 @@ export const AddPanel = (props: Props) => {
     } as financeProductRecord;
 
     const resProduct = await postProduct(financeProductOfUser);
-    const resFinance = await changeSavings({savings: props.userSavings - value})
+    const resFinance = await changeSavings({savings: props.savings - value})
     
     if(resProduct?.status === 200 && resFinance) {
       window.location.reload();

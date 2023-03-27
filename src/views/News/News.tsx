@@ -2,9 +2,10 @@ import React from "react";
 import { NewProduct } from "../../components/Article/NewProduct";
 import { Article } from "../../components/Article/Article";
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
+import "./News.scss"
 
 export const News = () => {
-  return <>
+  return <div className="News">
     <ViewTitle title="Aktualności"/>
     <Article title="Na co zwrócić uwagę przy zakładaniu lokaty bankowej?" date="24.03.2023">
       Musisz też jednak pamiętać, iż podpisując umowę lokaty, zgadzasz się na kilka warunków, które w dłuższej perspektywie mogą okazać sięmniej korzystne.Po pierwsze, nie możesz wycofać oszczędności przed zadeklarowanym terminem ani dokonywać wpłat powiększających wartośćdepozytu. Ponadto, jeśli przed czasem zerwiesz lokatę, musisz liczyć się z utratą odsetek (choć nie jest to regułą we wszystkich bankach– niektóre oferty umożliwią ci zachowanie wypracowanych zysków nawet w takiej sytuacji). Po drugie, ta forma oszczędzania jest obłożona19% podatkiem Belki, który znacznie obniża zyski z lokat (w praktyce od każdej zarobionej złotówki aż 19 groszy zabierze Ci fiskus). Wefekcie np. depozyt z oprocentowaniem 3% w skali roku pozwoli Ci zarobić „na rękę” znacznie mniej, bo tylko 2,43%.
@@ -46,5 +47,5 @@ export const News = () => {
     <Article title="Lokaty internetowe bez konta najbardziej pożądane, ale czy najlepsze?" date="19.03.2023">
       Klienci cenią wygodę, a ponadto możliwość uniknięcia wspomnianych już, dodatkowych warunków oferty. Z tego powodu prawdopodobnienajbardziej cenią oni lokaty internetowe bez konta. Nie dość, że można je otworzyć bez wychodzenia z domu, to jeszcze nie wymagają onejednoczesnego korzystania z rachunku osobistego. Nie warto jednak zamykać się na depozyty dostępne tylko dla posiadaczy kont, gdyż to oneproponują tradycyjnie nieco lepsze warunki. Lokaty bankowe mogą być dołączone do ROR-u o dobrych opłatach i interesujących usługachdodatkowych i może okazać się, że taki rachunek przyniesie nam więcej korzyści.
     </Article>
-  </>
+  </div>
 }

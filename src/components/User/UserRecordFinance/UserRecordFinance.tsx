@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";/* 
 import { Finance, financeProductRecord } from "../../../types/User"; */
 import { Finance, financeProductRecord } from "types";
-import { FinancialOperations } from "../../../utils/financeOperation";
 import { Error } from "../../common/Error/Error";
 import { Loading } from "../../common/Loading/Loading";
 import { FinanceChanges } from "../../Finance/FinanceChanges/FinanceChanges";
@@ -58,24 +57,26 @@ export const UserRecordFinance = (props: Props) => {
   if (finance) {
     /* const userSavings = finance.savings - FinancialOperations.financialCushion(finance.monthlyExpanse); */
 
-    return <>
-      <FinanceRecord 
-        salary={finance.salary} 
-        expanse={finance.monthlyExpanse} 
-        savings={finance.savings}
-      />
-      <FinanceChanges 
-        financeId={props.financeId} 
-        salary={finance.salary} 
-        monthlyExpanse={finance.monthlyExpanse} 
-        savings= {finance.savings}
-      />
+    return <div className="UserRecordFinance">
+      <div className="flex-row">
+        <FinanceRecord 
+          salary={finance.salary} 
+          expanse={finance.monthlyExpanse} 
+          savings={finance.savings}
+        />
+        <FinanceChanges 
+          financeId={props.financeId} 
+          salary={finance.salary} 
+          monthlyExpanse={finance.monthlyExpanse} 
+          savings= {finance.savings}
+        />
+      </div>
       {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>
         {displayProducts && <ProductList financeId={props.financeId} savings={finance.savings} monthlyExpanse={finance.monthlyExpanse}/>}
       </div>
-  </>
+  </div>
   }
   return <Error>{error}</Error>
 }

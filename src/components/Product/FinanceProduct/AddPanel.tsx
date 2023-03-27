@@ -8,6 +8,8 @@ type Props = {
   productId: string,
   savings: number,
   monthlyExpanse: number,
+  minContribution: number,
+  maxContribution: number
 }
 
 export const AddPanel = (props: Props) => {
@@ -53,6 +55,14 @@ export const AddPanel = (props: Props) => {
     };
     if (value > props.savings - FinancialOperations.financialCushion(props.monthlyExpanse)) {
       setError('Brak wolnych oszczędności');
+      return;
+    };
+    if (value < props.minContribution) {
+      setError('Za mały wkład finansowy');
+      return;
+    };
+    if (value > props.maxContribution) {
+      setError('Za duży wkład finansowy');
       return;
     };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { FinancialOperations } from "../../../utils/financeOperation";
 import { FinanceRow } from "./FInanceRow";
+import "./FinanceRecord.scss"
 
 type Props = {
   salary: number,
@@ -11,7 +12,7 @@ type Props = {
 export const FinanceRecord = (props: Props) => {
   const financialCushion = FinancialOperations.financialCushion(props.expanse)
   return (
-    <ul>
+    <ul className="FinanceRecord">
       <FinanceRow 
         title="Miesięczne zarobki" 
         data={props.salary}

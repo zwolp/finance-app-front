@@ -1,23 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { Product } from "../../../types/Product";
+import { Product } from "types";
 import { Loading } from "../../common/Loading/Loading";
 import { ProductRow } from "./ProductRow";
 
 type Props = {
   financeId: string,
+  savings: number,
+  monthlyExpanse: number,
 };
 
 export const ProductList = (props: Props) => {
   const [list, setList] = useState<Product[]>([])
 
-  const handleClick = (obj: Product) => {
-    console.log(obj);
-  }
-
   const handleProducts = async () => {
     try {
     const res = await fetch('http://localhost:3001/product');
-    const data = await res.json()
+    const data = (await res.json()) as Product[];
     setList(data)
     } catch (e) {
       console.log(e);
@@ -33,6 +31,7 @@ export const ProductList = (props: Props) => {
   }
 
   return <ul className="productsList">
-    {list.map(obj => <ProductRow key={obj.id} product={obj} func={() => handleClick(obj)}/>)}
+    {list.map((obj, i) => {
+    return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>})}
   </ul>
 }

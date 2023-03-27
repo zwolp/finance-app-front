@@ -1,22 +1,24 @@
 import React from "react";
-import { financeProductRecord } from "../../../types/User";
+import { financeProductRecord } from "types";
 import { ProductOfUser } from "../Product/ProductOfUser";
 
 type Props = {
-  list: financeProductRecord[] | null;
+  list: financeProductRecord[] | null,
+  userSavings: number,
 };
 
 export const FinanceProductsList = (props: Props) => {
-
   
   return (
     <ul>
-    {props.list && props.list.map(obj => (
-      <li key={obj.productId}>
+    {props.list && props.list.map((obj, i) => (
+      <li key={i}>
         <ProductOfUser 
-          id={obj.productId}
+          productId={obj.productId}
+          financeId={obj.financeId}
           startDate={obj.startDate}
           resources={obj.resources}
+          userSavings={props.userSavings}
           />
       </li>))}
     </ul>

@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { Product } from "../../../types/Product";
-import { AddPanel } from "./AddPanel";
+import { Product } from "types";
+import { AddPanel } from "../FinanceProduct/AddPanel";
 
 type Props = {
   product: Product,
-  func: any,
+  financeId: string,
+  savings: number,
+  monthlyExpanse: number,
 }
 
 export const ProductRow = (props: Props) => {
-  const {name, annualInterestRate, durationInDays, minContribution, maxContribution, description} = props.product;
-
   const [displayAddPanel, setDisplayAddPanel] = useState<boolean>(false);
+
+  const {id, name, annualInterestRate, durationInDays, minContribution, maxContribution} = props.product;
 
   const handleClick = (e: React.MouseEvent) => {
     displayAddPanel ? setDisplayAddPanel(false) : setDisplayAddPanel(true)
@@ -22,8 +24,15 @@ export const ProductRow = (props: Props) => {
       <p>{annualInterestRate} % w skali roku</p>
       <p>Okres {durationInDays} dni</p>
       <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
-      <p>{description && description}</p>
     </li>
-    {displayAddPanel && <AddPanel/>}
+    {displayAddPanel && 
+      <AddPanel 
+        financeId={props.financeId} 
+        productId={id} 
+        savings={props.savings} 
+        monthlyExpanse={props.monthlyExpanse}
+        minContribution={props.product.minContribution}
+        maxContribution={props.product.maxContribution}
+    />}
   </>
 }

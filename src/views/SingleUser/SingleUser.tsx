@@ -4,8 +4,9 @@ import { Loading } from "../../components/common/Loading/Loading";
 import { AddFinanceForm } from "../../components/Finance/AddFinance/AddFinanceForm";
 import { UserRecordFinance } from "../../components/User/UserRecordFinance/UserRecordFinance";
 import { UserRecordPersonal } from "../../components/User/UserRecordPersonal/UserRecordPersonal";
-import { User } from "../../types/User";
+import { User } from "types";
 import './SingleUser.css'
+import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 
 export const SingleUser = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -29,6 +30,7 @@ export const SingleUser = () => {
     return <Loading/>
   }
   return <>
+    <ViewTitle title={'Panel użytkownika'}/>
     <UserRecordPersonal user={user}/>
     {user.financeId ? <UserRecordFinance financeId={user.financeId}/> : <AddFinanceForm id={id}/>}
   </>

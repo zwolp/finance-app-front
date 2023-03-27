@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Finance, financeProductRecord } from "../../../types/User";
+import React, { useEffect, useState } from "react";/* 
+import { Finance, financeProductRecord } from "../../../types/User"; */
+import { Finance, financeProductRecord } from "types";
 import { Error } from "../../common/Error/Error";
 import { Loading } from "../../common/Loading/Loading";
 import { FinanceChanges } from "../../Finance/FinanceChanges/FinanceChanges";
 import { FinanceProductsList } from "../../Product/FinanceProduct/FinanceProductsList";
 import { FinanceRecord } from "../../Finance/FinanceRecord/FinanceRecord";
 import { ProductList } from "../../Product/Product/ProductList";
+import './UserRecordFinance.scss';
 
 type Props = {
   financeId: string;
@@ -22,8 +24,8 @@ export const UserRecordFinance = (props: Props) => {
     try {
       const res = await fetch('http://localhost:3001/finance/' + props.financeId);
       const data = await res.json();
-      setFinance(data);
-      setLoading(false);
+      await setFinance(data);
+      await setLoading(false);
     } catch (e) {
       console.log(e);
       setError('Wystąpił błąd, spróbuj później.');
@@ -34,7 +36,7 @@ export const UserRecordFinance = (props: Props) => {
     try {
       const res = await fetch('http://localhost:3001/product/user/' + props.financeId);
       const data = await res.json();
-      setFinanceAndProductsList(data);
+      await setFinanceAndProductsList(data);
     } catch (e) {
       console.log(e);
     }
@@ -53,15 +55,28 @@ export const UserRecordFinance = (props: Props) => {
     return <Loading/>
   }
   if (finance) {
-    return <>
-      <FinanceRecord salary={finance.salary} expanse={finance.monthlyExpanse} savings={finance.savings}/>
-      <FinanceChanges financeId={props.financeId} salary={finance.salary} monthlyExpanse={finance.monthlyExpanse} savings= {finance.savings}/>
-      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList}/>}
+    /* const userSavings = finance.savings - FinancialOperations.financialCushion(finance.monthlyExpanse); */
+
+    return <div className="UserRecordFinance">
+      <div className="flex-row">
+        <FinanceRecord 
+          salary={finance.salary} 
+          expanse={finance.monthlyExpanse} 
+          savings={finance.savings}
+        />
+        <FinanceChanges 
+          financeId={props.financeId} 
+          salary={finance.salary} 
+          monthlyExpanse={finance.monthlyExpanse} 
+          savings= {finance.savings}
+        />
+      </div>
+      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>
-        {displayProducts && <ProductList financeId={props.financeId}/>}
+        {displayProducts && <ProductList financeId={props.financeId} savings={finance.savings} monthlyExpanse={finance.monthlyExpanse}/>}
       </div>
-  </>
+  </div>
   }
   return <Error>{error}</Error>
 }

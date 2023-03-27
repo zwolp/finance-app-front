@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Product } from "../../../types/Product";
+import React, { useEffect, useState } from "react";/* 
+import { Product } from "../../../types/Product"; */
+import { Product } from "types"
 import { FinancialOperations } from "../../../utils/financeOperation";
 import { endDate, getDate } from "../../../utils/getDate";
 import { Loading } from "../../common/Loading/Loading";
+import { DeleteProductButton } from "../FinanceProduct/DeleteProductButton";
 
 type Props = {
-  id: string,
+  productId: string,
+  financeId: string,
   startDate: string,
   resources: number,
+  userSavings: number,
 }
 
 export const ProductOfUser = (props: Props) => {
@@ -16,15 +20,14 @@ export const ProductOfUser = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:3001/product/' + props.id);
+        const res = await fetch('http://localhost:3001/product/' + props.productId);
         const data = await res.json();
-        console.log(data);
         setProduct(data);
       } catch (e) {
         console.log(e);
       }
     })()
-  }, [props.id]);
+  }, [props.productId]);
   
   if (!product) {
     return <Loading/>
@@ -36,6 +39,6 @@ export const ProductOfUser = (props: Props) => {
       <p>Wkład finansowy {props.resources}</p>
       <p>Oczekiwany zysk {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate).toFixed(2)}</p>
     </div>
-    <button>Zrezygnuj</button>
+    <DeleteProductButton productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
   </>
 }

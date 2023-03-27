@@ -3,7 +3,8 @@ import { Error } from "../../components/common/Error/Error";
 import { Loading } from "../../components/common/Loading/Loading";
 import { AddUserForm } from "../../components/User/AddUser/AddUserForm";
 import { UsersList } from "../../components/User/UsersList/UsersList";
-import { UserPersonal } from "../../types/User";
+import { UserPersonal } from "types"
+import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 
 export const User = () => {
   const [users, setUsers] = useState<UserPersonal[]>([]);
@@ -18,6 +19,7 @@ export const User = () => {
       setLoading(false);
     } catch (e) {
       console.log(e);
+      setLoading(false)
       setError('Wystąpił błąd, spróbuj później.')
     }
   };
@@ -25,11 +27,12 @@ export const User = () => {
   useEffect(() => {
     handleUsers()
   },[]);
-  if (error) {
-    return <Error>{error}</Error>
-  }
+
   return <>
-    {loading ? <Loading/> : <UsersList list={users}/>}
+    <ViewTitle title="Użytkownicy"/>
+    {loading && <Loading/>}
+    {error && <Error>{error}</Error>}
+    {users.length && <UsersList list={users}/>}
     <AddUserForm/>
   </>
 }

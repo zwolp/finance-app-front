@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChangePanel } from "./ChangePanel";
+import "./FinanceChanges.scss"
 
 type Props = {
   financeId: string,
@@ -16,7 +17,7 @@ export const FinanceChanges = (props: Props) => {
   }
   
   return (
-    <div>
+    <div className="FinanceChanges">
       <button onClick={handleClick}>Zmiana w finansach</button>
       {displayChanges && <ChangePanel financeId={props.financeId} salary={props.salary} monthlyExpanses={props.monthlyExpanse} savings={props.savings}/>}
     </div>

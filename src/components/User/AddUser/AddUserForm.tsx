@@ -19,8 +19,9 @@ export const AddUserForm = () => {
         body: JSON.stringify(user)
       });
 
-      const data = await res.json();
-      console.log(data);
+      if (res.status === 200) {
+        await window.location.reload()
+      }
     } catch (e) {
       console.log(e);
     }

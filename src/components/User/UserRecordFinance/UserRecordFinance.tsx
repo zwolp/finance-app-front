@@ -55,15 +55,28 @@ export const UserRecordFinance = (props: Props) => {
     return <Loading/>
   }
   if (finance) {
-    return <>
-      <FinanceRecord salary={finance.salary} expanse={finance.monthlyExpanse} savings={finance.savings}/>
-      <FinanceChanges financeId={props.financeId} salary={finance.salary} monthlyExpanse={finance.monthlyExpanse} savings= {finance.savings}/>
+    /* const userSavings = finance.savings - FinancialOperations.financialCushion(finance.monthlyExpanse); */
+
+    return <div className="UserRecordFinance">
+      <div className="flex-row">
+        <FinanceRecord 
+          salary={finance.salary} 
+          expanse={finance.monthlyExpanse} 
+          savings={finance.savings}
+        />
+        <FinanceChanges 
+          financeId={props.financeId} 
+          salary={finance.salary} 
+          monthlyExpanse={finance.monthlyExpanse} 
+          savings= {finance.savings}
+        />
+      </div>
       {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}
       <div className="addProduct">
         <button onClick={handleClick}>Dodaj produkt</button>
-        {displayProducts && <ProductList financeId={props.financeId} userSavings={finance.savings}/>}
+        {displayProducts && <ProductList financeId={props.financeId} savings={finance.savings} monthlyExpanse={finance.monthlyExpanse}/>}
       </div>
-  </>
+  </div>
   }
   return <Error>{error}</Error>
 }

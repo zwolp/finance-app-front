@@ -10,6 +10,7 @@ export const AddUserForm = () => {
   
   const saveUser = async (e: SyntheticEvent) => {
     e.preventDefault();
+    console.log(user);
     try {
       const res = await fetch('http://localhost:3001/user/add', {
         method: 'POST',

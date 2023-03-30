@@ -31,10 +31,7 @@ export const ProductList = (props: Props) => {
   useEffect(() => {
     handleProducts();
   }, []);
-  console.log(list);
-/*   if (list.length === 0) {
-    return <Loading/>
-  } */
+
   if (loading) {
     return <Loading/>
   }

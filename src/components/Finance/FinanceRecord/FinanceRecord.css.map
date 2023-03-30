@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,IAAI;CACjB",
+    "sources": [
+        "FinanceRecord.scss"
+    ],
+    "names": [],
+    "file": "FinanceRecord.css"
+}

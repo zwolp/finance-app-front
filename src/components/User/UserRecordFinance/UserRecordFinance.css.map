@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,kBADgB,CAChB,SAAS,CAAC;EACR,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CACpB",
+    "sources": [
+        "UserRecordFinance.scss"
+    ],
+    "names": [],
+    "file": "UserRecordFinance.css"
+}

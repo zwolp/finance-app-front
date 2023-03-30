@@ -35,7 +35,7 @@ export const AddFinanceForm = (props: Props) => {
     <div className="form-container">  
       <form onSubmit={saveFinanse}>
         <label>
-          <p>Miesięczna wypłata</p>
+          <p>Miesięczne zarobki</p>
           <input type="number" value={finance.salary} onChange={e => {setFinance({...finance, salary: e.target.value})}}/>
         </label>
         <label>

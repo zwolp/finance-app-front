@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,eAAe,CAAC;EACd,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,GAAG;EACZ,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "FinanceChanges.scss"
+    ],
+    "names": [],
+    "file": "FinanceChanges.css"
+}

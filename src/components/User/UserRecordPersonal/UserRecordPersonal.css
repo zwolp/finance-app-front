@@ -1,0 +1,9 @@
+.personal-info {
+  text-align: center;
+}
+
+.personal-info .user-name {
+  text-transform: uppercase;
+  font-size: 1.2em;
+}
+/*# sourceMappingURL=UserRecordPersonal.css.map */

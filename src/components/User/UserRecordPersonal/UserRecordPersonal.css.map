@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,UAAU,EAAE,MAAM;CAKnB;;AAND,AAEE,cAFY,CAEZ,UAAU,CAAC;EACT,cAAc,EAAE,SAAS;EACzB,SAAS,EAAE,KAAK;CACjB",
+    "sources": [
+        "UserRecordPersonal.scss"
+    ],
+    "names": [],
+    "file": "UserRecordPersonal.css"
+}

@@ -1,9 +1,9 @@
 import React from "react";
-import { financeProductRecord } from "types";
+import { FinanceProductRecord } from "types";
 import { ProductOfUser } from "../Product/ProductOfUser";
 
 type Props = {
-  list: financeProductRecord[] | null,
+  list: FinanceProductRecord[] | null,
   userSavings: number,
 };
 

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";/* 
-import { Product } from "../../../types/Product"; */
+import React, { useEffect, useState } from "react";
 import { Product } from "types"
 import { FinancialOperations } from "../../../utils/financeOperation";
-import { endDate, getDate } from "../../../utils/getDate";
+import { currentDateToSend, endDate } from "../../../utils/getDate";
 import { Loading } from "../../common/Loading/Loading";
 import { DeleteProductButton } from "../FinanceProduct/DeleteProductButton";
 
@@ -32,12 +31,13 @@ export const ProductOfUser = (props: Props) => {
   if (!product) {
     return <Loading/>
   }
+  console.log('ok');
   return <>
     <div className="product">
       <p>{product.name}</p>
-      <p>Produkt finansowy założony w dniu {getDate(props.startDate)}, planowane zakończenie {endDate(props.startDate, product.durationInDays)}</p>
+      <p>Produkt finansowy założony w dniu {currentDateToSend(new Date(props.startDate))}, planowane zakończenie {currentDateToSend(endDate(props.startDate, product.durationInDays))}</p>
       <p>Wkład finansowy {props.resources}</p>
-      <p>Oczekiwany zysk {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate).toFixed(2)}</p>
+      <p>Oczekiwany zysk {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate)}</p>
     </div>
     <DeleteProductButton productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
   </>

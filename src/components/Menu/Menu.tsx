@@ -8,18 +8,29 @@ export const Menu = () => {
       <div className="buttons">
         <NavLink 
           to='/' 
-          className={({ isActive }) => isActive ? 'active' : undefined}>
+          className={({ isActive }) => isActive ? 'active' : undefined}
+        >
             home
         </NavLink>
         <NavLink 
           to='/user'
-          className={({ isActive }) => isActive ? 'active' : undefined}>
+          className={({ isActive }) => isActive ? 'active' : undefined}
+        >
             user
         </NavLink>
         <NavLink 
           to='/news'
-            className={({ isActive }) => isActive ? 'active' : undefined}>
+          className={({ isActive }) => isActive ? 'active' : undefined}
+        >
             news
+        </NavLink>
+      </div>
+      <div className="admin">
+        <NavLink
+          to='/admin'
+          className={({ isActive }) => isActive ? 'active' : undefined}
+        >
+          administrator
         </NavLink>
       </div>
     </header>

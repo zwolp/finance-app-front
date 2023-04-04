@@ -6,6 +6,7 @@ import { News } from './views/News/News';
 import { SingleUser } from './views/SingleUser/SingleUser';
 import { Menu } from './components/Menu/Menu';
 import "./App.css"
+import { Admin } from './views/Admin/Admin';
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
           <Route path='/user' element={<User/>}/>
           <Route path='/user/:id' element={<SingleUser/>}/>
           <Route path='/news' element={<News/>}/>
+          <Route path='/admin' element={<Admin/>}/>
         </Routes>
       </div>
     </>

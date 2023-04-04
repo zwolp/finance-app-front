@@ -1,9 +1,12 @@
 @import 'src/config/variables.scss';
 
 header {
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+
   .buttons {
     padding: 20px;
-    background-color: $primary-color;
   }
   a {
     margin-left: 10px;
@@ -22,5 +25,14 @@ header {
 
   .active {
     background-color: $secondary-color;
+  }
+
+  .admin {
+    display: flex;
+    align-items: center;
+
+    a {
+      margin-right: 10px;
+    }
   }
 } 

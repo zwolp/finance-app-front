@@ -1,12 +1,16 @@
 @import 'src/config/variables.scss';
 
 header {
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+
   .buttons {
     padding: 20px;
-    background-color: $primary-color;
   }
-  a {
+  a, button {
     margin-left: 10px;
+    margin-right: 10px;
     padding: 4px 10px;
     color: white;
     text-transform: uppercase;
@@ -16,11 +20,21 @@ header {
     border: 2px solid white;
     cursor: pointer;
   }
-  a:hover {
+  
+  button {
+    background-color: transparent;
+  }
+
+  a:hover, button:hover {
     background-color: $secondary-color;
   }
 
   .active {
     background-color: $secondary-color;
+  }
+
+  .admin, button {
+    display: flex;
+    align-items: center;
   }
 } 

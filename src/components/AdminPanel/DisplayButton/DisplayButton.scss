@@ -1,0 +1,19 @@
+$buttonWidth: 50px;
+
+.DisplayButton {
+  width: 30%;
+  max-width: 300px;
+
+  label {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid;
+      line-height: $buttonWidth;
+      
+      button {
+        width: $buttonWidth;
+        border: none;
+        background-color: transparent;
+      }
+  }
+}

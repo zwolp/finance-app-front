@@ -9,6 +9,6 @@ export class FinancialOperations {
   };
   /* Kwota zdeponowana x ilość dni utrzymywania lokaty x oprocentowanie w skali roku / 365 dni */
   static depositProfit (resources: number, durationInDays: number, annualInterestRate: number): number {
-    return resources * durationInDays * ((annualInterestRate / 100) / 365);
+    return Number((resources * durationInDays * ((annualInterestRate / 100) / 365)).toFixed(2));
   };
 };

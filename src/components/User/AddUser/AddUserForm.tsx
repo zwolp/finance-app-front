@@ -42,7 +42,7 @@ export const AddUserForm = () => {
             <input className="form-input" type="text" value={user.surname} onChange={e => setUser({...user, surname: e.target.value})}/>
           </label>
           <label>
-            <p>Praca:</p>
+            <p>Zawód:</p>
             <input className="form-input" type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
           </label>
           <input type="submit" className="btn"/>

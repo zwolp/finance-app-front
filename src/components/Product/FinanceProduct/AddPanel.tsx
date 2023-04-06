@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FinancialOperations } from "../../../utils/financeOperation";
-import { financeProductRecord } from "types";
+import { FinanceProductRecord } from "types";
 import { currentDateToSend} from "../../../utils/getDate";
 
 type Props = {
@@ -16,10 +16,10 @@ export const AddPanel = (props: Props) => {
   const [value, setValue] = useState<number | ''>('');
   const [error, setError] = useState<string>('');
 
-  const postProduct = async (body: financeProductRecord) => {
+  const postProduct = async (body: FinanceProductRecord) => {
     console.log(props.savings);
     try {
-      const res = await fetch('http://localhost:3001/product/add-product', {
+      const res = await fetch('http://localhost:3001/product/add-user-product', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -71,7 +71,7 @@ export const AddPanel = (props: Props) => {
       productId: props.productId,
       startDate: currentDateToSend(new Date()),
       resources: value
-    } as financeProductRecord;
+    } as FinanceProductRecord;
 
     const resProduct = await postProduct(financeProductOfUser);
     const resFinance = await changeSavings({savings: props.savings - value})

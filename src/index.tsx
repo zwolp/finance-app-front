@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      ZROBIĆ LOGOWANIE DO PANELU ADMINA
+      artykuły i produkty pokazane w zakładce news, dodać przycisk wyloguj z admina, po wyjściu z admina nie da się wrócić
     </BrowserRouter>
   </React.StrictMode>
 );

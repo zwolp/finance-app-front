@@ -1,13 +1,37 @@
 import React, { useState } from "react";
 
-export const Admin = () => {
+type Props = {
+  handleLoggedAdmin: (isLogged: boolean) => void
+}
+
+export const LoginPanel = (props: Props) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [hiddenPassword, setHiddenPassword] = useState(true);
   const [hiddenButtonText, setHiddenButtonText] = useState('Pokaż hasło');
 
+  const checkAdmin = async () => {
+    try {
+      const res = await fetch('http://localhost:3001/admin/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name,
+          password
+        })
+      })
+      const data = await res.json()
+      props.handleLoggedAdmin(data)
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    checkAdmin();
     console.log(name, password);
   }
 

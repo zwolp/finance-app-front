@@ -19,7 +19,7 @@ export const AddPanel = (props: Props) => {
   const postProduct = async (body: FinanceProductRecord) => {
     console.log(props.savings);
     try {
-      const res = await fetch('http://localhost:3001/product/add-product', {
+      const res = await fetch('http://localhost:3001/product/add-user-product', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

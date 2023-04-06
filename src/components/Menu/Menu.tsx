@@ -2,7 +2,11 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Menu.scss"
 
-export const Menu = () => {
+type Props = {
+  loggedAdmin: boolean,
+}
+
+export const Menu = (props: Props) => {
   return (
     <header>
       <div className="buttons">
@@ -26,12 +30,18 @@ export const Menu = () => {
         </NavLink>
       </div>
       <div className="admin">
-        <NavLink
+        {props.loggedAdmin ? 
+          <button
+          onClick={() => {window.location.reload()}}
+        >
+          wyloguj
+        </button> :
+          <NavLink
           to='/admin'
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
           administrator
-        </NavLink>
+        </NavLink>}
       </div>
     </header>
   )

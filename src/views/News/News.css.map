@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACE,KADG,CACH,GAAG,CAAC;EACF,UAAU,EAAE,GAAG;CAChB",
+    "sources": [
+        "News.scss"
+    ],
+    "names": [],
+    "file": "News.css"
+}

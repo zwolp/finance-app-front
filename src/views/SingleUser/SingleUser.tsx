@@ -7,10 +7,11 @@ import { UserRecordPersonal } from "../../components/User/UserRecordPersonal/Use
 import { User } from "types";
 import './SingleUser.css'
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
+import { DeleteUser } from "../../components/User/DeleteUser/DeleteUser";
 
 export const SingleUser = () => {
   const [user, setUser] = useState<User | null>(null);
-  const {id} = useParams()
+  const {id}  = useParams()
 
   const handleUser = async () => {
     try {
@@ -33,5 +34,6 @@ export const SingleUser = () => {
     <ViewTitle title={'Panel użytkownika'}/>
     <UserRecordPersonal user={user}/>
     {user.financeId ? <UserRecordFinance financeId={user.financeId}/> : <AddFinanceForm id={id}/>}
+    <DeleteUser id={String(id)}/>
   </>
 }

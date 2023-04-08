@@ -14,6 +14,7 @@ export const FinanceProductsList = (props: Props) => {
     {props.list && props.list.map((obj, i) => (
       <li key={i}>
         <ProductOfUser 
+          id={obj.id}
           productId={obj.productId}
           financeId={obj.financeId}
           startDate={obj.startDate}

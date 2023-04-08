@@ -21,7 +21,7 @@ export const Forecast = (props: Props) => {
 
   const getProductsOfUser = async () => {
     try {
-      const res = await fetch('http://localhost:3001/finance/forecast/' + props.financeId);
+      const res = await fetch('http://localhost:3001/finance-product/forecast/' + props.financeId);
       const data = await res.json();
       setProductsOfUser(data)
     } catch (e) {
@@ -48,7 +48,7 @@ export const Forecast = (props: Props) => {
     const forecastDate = new Date(date);
     setMonthDifference(getDifference((forecastDate.getTime() - currentDate.getTime())));
     if (productsOfUser.length > 0) {
-      setFinishedProducts(productsOfUser.filter(product => forecastDate.getTime() >= (endDate(product.startDate, product.duration)).getTime()))
+      setFinishedProducts(productsOfUser.filter(product => forecastDate.getTime() >= (endDate(new Date(product.startDate), product.duration)).getTime()))
     }
     console.log(date, monthDifference);
     console.log(finishedProducts);
@@ -75,7 +75,7 @@ export const Forecast = (props: Props) => {
             title="Zakończone produkty"
             finishedProducts={finishedProducts.map(product => ({
               name: product.name,
-              endDate: currentDateToSend((endDate(product.startDate, product.duration))),
+              endDate: currentDateToSend((endDate(new Date(product.startDate), product.duration))),
               profit: FinancialOperations.depositProfit(product.resources, product.duration, product.annualInterestRate)
             }))}
           />}  

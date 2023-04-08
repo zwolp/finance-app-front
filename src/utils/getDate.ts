@@ -3,7 +3,7 @@ export const getDate = (date: string): string => {
   return dateObj.toLocaleDateString()
 }
 
-export const endDate = (startDate: string, durationInDays: number) => {
+export const endDate = (startDate: Date, durationInDays: number) => {
   const date = new Date(startDate).getTime();
   const days = durationInDays * 24 * 60 * 60 * 1000;
   return new Date(date + days)/* .toLocaleDateString() */

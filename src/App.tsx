@@ -11,7 +11,6 @@ import { AdminPanel } from './views/Admin/AdminPanel';
 
 export const App = () => {
   const [loggedAdmin, setLoggedAdmin] = useState(false);
-  console.log(loggedAdmin);
   const handleLoggedAdmin = (isLogged: boolean) => {
     setLoggedAdmin(isLogged)
   }

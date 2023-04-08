@@ -30,18 +30,19 @@ export const Menu = (props: Props) => {
         </NavLink>
       </div>
       <div className="admin">
-        {props.loggedAdmin ? 
+        {props.loggedAdmin && 
           <button
           onClick={() => {window.location.reload()}}
-        >
-          wyloguj
-        </button> :
-          <NavLink
-          to='/admin'
-          className={({ isActive }) => isActive ? 'active' : undefined}
-        >
-          administrator
-        </NavLink>}
+          >
+            wyloguj
+          </button> 
+        }
+      <NavLink
+        to='/admin'
+        className={({ isActive }) => isActive ? 'active' : undefined}
+      >
+        administrator
+      </NavLink>
       </div>
     </header>
   )

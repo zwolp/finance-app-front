@@ -34,7 +34,7 @@ export const UserRecordFinance = (props: Props) => {
   } 
   const handleFinanceAndProduct = async () => {
     try {
-      const res = await fetch('http://localhost:3001/product/user/' + props.financeId);
+      const res = await fetch('http://localhost:3001/finance-product/user/' + props.financeId);
       const data = await res.json();
       await setFinanceAndProductsList(data);
     } catch (e) {

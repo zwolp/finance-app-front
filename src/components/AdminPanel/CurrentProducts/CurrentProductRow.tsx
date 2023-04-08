@@ -23,7 +23,7 @@ export const CurrentProductRow = (props: Props) => {
   }
   const checkUsedProduct = async (id: string) => {
     try {
-      const res = await fetch('http://localhost:3001/product/used/' + id);
+      const res = await fetch('http://localhost:3001/finance-product/used/' + id);
       const data = await res.json() as {financeId: string}[];
       if (data.length === 0) {
         console.log([true, id]);

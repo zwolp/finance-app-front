@@ -12,7 +12,7 @@ export const AddUserForm = () => {
     e.preventDefault();
     console.log(user);
     try {
-      const res = await fetch('http://localhost:3001/user/add', {
+      const res = await fetch('http://localhost:3001/user/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

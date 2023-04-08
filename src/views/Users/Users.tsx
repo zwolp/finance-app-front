@@ -13,7 +13,7 @@ export const User = () => {
 
   const handleUsers = async () => {
     try {
-      const res = await fetch('http://localhost:3001/user');
+      const res = await fetch('http://localhost:3001/user/');
       const data = await res.json() as UserPersonal[];
       setUsers(data);
       setLoading(false);

@@ -1,6 +1,7 @@
 import React from "react";
 
 type Props = {
+  id: string,
   financeId: string,
   productId: string,
   resources: number,
@@ -9,13 +10,22 @@ type Props = {
 
 export const DeleteProductButton = (props: Props) => {
 
-  const deleteProduct = async () => {
+/*   const deleteProduct = async () => {
     try {
     await fetch(`http://localhost:3001/product/${props.financeId}/${props.productId}`, {
       method: 'DELETE',
       headers: {
         'Content-Type':'application/json',
       },
+    })
+    } catch (e) {
+      console.log(e);
+    };
+  }; */
+  const deleteProduct = async () => {
+    try {
+    await fetch(`http://localhost:3001/finance-product/` + props.id, {
+      method: 'DELETE',
     })
     } catch (e) {
       console.log(e);

@@ -6,6 +6,7 @@ import { Loading } from "../../common/Loading/Loading";
 import { DeleteProductButton } from "../FinanceProduct/DeleteProductButton";
 
 type Props = {
+  id: string,
   productId: string,
   financeId: string,
   startDate: string,
@@ -35,10 +36,10 @@ export const ProductOfUser = (props: Props) => {
   return <>
     <div className="product">
       <p>{product.name}</p>
-      <p>Produkt finansowy założony w dniu {currentDateToSend(new Date(props.startDate))}, planowane zakończenie {currentDateToSend(endDate(props.startDate, product.durationInDays))}</p>
+      <p>Produkt finansowy założony w dniu {currentDateToSend(new Date(props.startDate))}, planowane zakończenie {currentDateToSend(endDate(new Date(props.startDate), product.durationInDays))}</p>
       <p>Wkład finansowy {props.resources}</p>
       <p>Oczekiwany zysk {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate)}</p>
     </div>
-    <DeleteProductButton productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
+    <DeleteProductButton id={props.id} productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
   </>
 }

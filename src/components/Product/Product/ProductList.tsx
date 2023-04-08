@@ -17,7 +17,7 @@ export const ProductList = (props: Props) => {
 
   const handleProducts = async () => {
     try {
-    const res = await fetch('http://localhost:3001/product');
+    const res = await fetch('http://localhost:3001/product/');
     const data = (await res.json()) as Product[];
     setList(data)
     setLoading(false)

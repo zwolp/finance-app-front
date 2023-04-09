@@ -1,0 +1,23 @@
+.Articles {
+  margin-top: 20px;
+  list-style: none;
+
+  .article {
+    margin: 0 auto 13px;
+    padding: 10px;
+    width: 90%;
+    max-width: 1100px;
+    background-color: whitesmoke;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+
+    .article-date {
+      text-align: right;
+    }
+
+    .article-title {
+      margin-left: 10px;
+      margin-bottom: 5px;
+    }
+  }
+}

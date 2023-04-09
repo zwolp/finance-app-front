@@ -3,9 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
 
-.content {
-  margin: 10px 20px;
-  padding: 10px;
+  .content {
+    margin: 10px;
+    min-height: calc(100vh - 79px);
+  }
 }

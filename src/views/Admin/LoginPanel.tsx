@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import './LoginPanel.scss'
+import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 
 type Props = {
   handleLoggedAdmin: (isLogged: boolean) => void
@@ -45,18 +47,23 @@ export const LoginPanel = (props: Props) => {
     }
   }
 
-  return <div className="Admin">
-    <form onSubmit={handleForm}>
-      <label>
-        <p>Nazwa użytkownika</p>
-        <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
-      </label>
-      <label>
-        <p>Hasło</p>
-        <input type={hiddenPassword ? "password" : "text"} name="password" value={password} onChange={e => setPassword(e.target.value)}/>
-      </label>
-      <input type="submit"/>
-    </form>
-    <button onClick={showPassword}>{hiddenButtonText}</button>
-  </div>
+  return <>
+    <ViewTitle title="Logowanie"/>
+    <div className="LoginPanel">
+      <form onSubmit={handleForm}>
+        <label>
+          <p>Nazwa:</p>
+          <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
+        </label>
+        <label>
+          <p>Hasło:</p>
+          <input type={hiddenPassword ? "password" : "text"} name="password" value={password} onChange={e => setPassword(e.target.value)}/>
+        </label>
+        <div className="buttons">
+          <div className="show-password" onClick={showPassword}>{hiddenButtonText}</div>
+          <input type="submit" className="button"/>
+        </div>
+      </form>
+    </div>
+  </>
 }

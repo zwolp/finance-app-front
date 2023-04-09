@@ -6,23 +6,21 @@ type Props = {
 }
 
 export const ProductRow = (props: Props) => {
-  return (
-  <div className="new-product article">
-    <h4 className="new-product-name">
+  return <>
+    <h4 className="product-name">
       {props.product.name}
     </h4>
-    <p className="new-product-annual-interest-rate">
-      {props.product.annualInterestRate} % w skali roku
+    <p className="product-annual-interest-rate">
+      <span>Oprocentowanie:</span> {props.product.annualInterestRate} % / rok
     </p>
-    <p className="new-product-duration">
-      {props.product.durationInDays} dni
+    <p className="product-duration">
+      <span>Okres trwania:</span> {props.product.durationInDays} dni
     </p>
-    <p className="new-product-resources">
-      od {props.product.minContribution} zł do {props.product.maxContribution} zł 
+    <p className="product-resources">
+      <span>Wkład finansowy:</span> od {props.product.minContribution} zł do {props.product.maxContribution} zł
     </p>
-    <p className="new-product-description article-description">
+    <p className="product-description">
       {props.product.description}
     </p>
-  </div>
-  )
+  </>
 }

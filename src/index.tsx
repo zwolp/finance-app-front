@@ -11,7 +11,6 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      trzeba przejrzeć backend i poprawić kod
     </BrowserRouter>
   </React.StrictMode>
 );

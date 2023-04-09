@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import { ProductWithoutId } from "types";
+import './AddProduct.scss';
 
 const obj: ProductWithoutId = {
   name: '',
@@ -44,6 +45,7 @@ export const AddProduct = (props: Props) => {
     <label>
       <p>Nazwa produktu:</p>
       <input 
+        className="name"
         type="text" 
         name="name" 
         required
@@ -74,7 +76,7 @@ export const AddProduct = (props: Props) => {
     <label>
       <p>Minimalny wkład:</p>
       <input 
-        type="text" 
+        type="number" 
         name="minContribution" 
         required
         value={product.minContribution} 
@@ -84,14 +86,14 @@ export const AddProduct = (props: Props) => {
     <label>
       <p>Maksymalny wkład:</p>
       <input 
-        type="text" 
+        type="number" 
         name="maxContribution" 
         value={product.maxContribution} 
         required
         onChange={e => setProduct({...product, maxContribution: Number(e.target.value)})}
       />
     </label>
-    <label>
+    <label className="description">
       <p>Opis produktu:</p>
       <textarea 
         name="description" 
@@ -102,7 +104,7 @@ export const AddProduct = (props: Props) => {
         onChange={e => setProduct({...product, description: e.target.value})}
       />
     </label>
-    <input type="submit" value="zapisz" onClick={saveProduct}/>
+    <button className="button" onClick={saveProduct}>Dodaj</button>
   </form>
 </div>
 }

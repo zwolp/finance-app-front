@@ -9,9 +9,6 @@ type Props = {
 export const DisplayButton = (props: Props) => {
 
   return <div className="DisplayButton">
-      <label>
-        <p>{props.title}</p>
-        <button onClick={props.click}>+</button>
-      </label>
+        <button onClick={props.click}>{props.title}</button>
   </div>
 }

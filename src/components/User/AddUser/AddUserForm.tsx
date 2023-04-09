@@ -29,8 +29,8 @@ export const AddUserForm = () => {
   }
 
   return (
-    <div className="position-fixed-container">
-      <div className="form-container">
+  //  <div className="position-fixed-container">
+      <div className="AddUserForm">
         <h3 className="form-title">Dodaj użytkownika</h3>
         <form onSubmit={saveUser}>
           <label>
@@ -45,9 +45,9 @@ export const AddUserForm = () => {
             <p>Zawód:</p>
             <input className="form-input" type="text" value={user.job} onChange={e => setUser({...user, job: e.target.value})}/>
           </label>
-          <input type="submit" className="btn"/>
+          <input type="submit" className="button" value='Dodaj'/>
         </form>
       </div>
-    </div>
+//    </div>
   )
 }

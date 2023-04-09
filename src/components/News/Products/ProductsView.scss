@@ -1,0 +1,31 @@
+.Products {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px auto 10px;
+  width: 80%;
+  list-style: none;
+
+  .product {
+    margin-bottom: 15px;
+    padding: 20px;
+    width: 40%;
+    max-width: 450px;
+    background-color: whitesmoke;
+    border: 1px solid #a1a1a1;
+    border-radius: 5px;
+
+    .product-name {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    p {
+      margin-bottom: 5px;
+    }
+
+    span {
+      font-weight: bold;
+    }
+  }
+}

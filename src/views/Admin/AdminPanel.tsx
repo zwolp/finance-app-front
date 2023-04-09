@@ -4,8 +4,12 @@ import { AddArticle } from "../../components/AdminPanel/AddArticle/AddArticle";
 import { DisplayButton } from "../../components/AdminPanel/DisplayButton/DisplayButton";
 import { CurrentProducts } from "../../components/AdminPanel/CurrentProducts/CurrentProducts";
 import { CurrentArticles } from "../../components/AdminPanel/CurrentArticles/CurrentArticles";
+import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
+import './AdminPanel.scss'
 
 export const AdminPanel = () => {
+  const [showProducts, setShowProducts] = useState(false);
+  const [buttonText, setButtonText] = useState('Produkty');
   const [displayNewProduct, setDisplayNewProduct] = useState(false);
   const [displayNewArticle, setDisplayNewArticle] = useState(false);
   const [displayProducts, setDisplayProducts] = useState(false);
@@ -16,27 +20,55 @@ export const AdminPanel = () => {
   }
   const handleClickDisplayNewArticle = () => {
     displayNewArticle ? setDisplayNewArticle(false) : setDisplayNewArticle(true)
-  }
+/*   }
   const handleClickDisplayProducts = () => {
     displayProducts ? setDisplayProducts(false) : setDisplayProducts(true)
   }
   const handleClickDisplayArticles = () => {
-    displayArticles ? setDisplayArticles(false) : setDisplayArticles(true)
+    displayArticles ? setDisplayArticles(false) : setDisplayArticles(true) */
   }
 
+  const handleShowProducts = () => {
+    if (showProducts) {
+      setShowProducts(false);
+      setButtonText('Produkty');
+    } else {
+      setShowProducts(true);
+      setButtonText('Artykuły');
+    }
+  }
 
-  return <div className="AdminPanel">
-    <div className="currentThings">
-      <DisplayButton title="Produkty" click={handleClickDisplayProducts}/>
-      {displayProducts && <CurrentProducts/>}
-      <DisplayButton title="Artukuły" click={handleClickDisplayArticles}/>
-      {displayArticles && <CurrentArticles/>}
+  return <>
+    <ViewTitle title="Panel Administratora"/>
+    <div className="AdminPanel">
+      <button className="show-products" onClick={handleShowProducts}>{buttonText}</button>
+      {
+        showProducts ? <>
+          <div className="container">
+            <CurrentProducts/>
+            <div className="add-product">
+              <DisplayButton title="Dodaj produkt" click={handleClickDisplayNewProduct}/>
+              {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct}/>}
+            </div>
+          </div>
+        </> : <>
+          <div className="container">
+            <CurrentArticles/>
+            <div className="add-article">
+              <DisplayButton title="Dodaj artukuł" click={handleClickDisplayNewArticle}/>
+              {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle}/>}
+            </div>
+          </div>
+        </>
+      }
+{/*         <DisplayButton title="Produkty" click={handleClickDisplayProducts}/>
+        {displayProducts && <CurrentProducts/>} */}
+{/*         <DisplayButton title="Artukuły" click={handleClickDisplayArticles}/>
+        {displayArticles && <CurrentArticles/>}
+        <DisplayButton title="Dodaj produkt" click={handleClickDisplayNewProduct}/>
+        {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct}/>}
+        <DisplayButton title="Dodaj artukuł" click={handleClickDisplayNewArticle}/>
+        {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle}/>} */}
     </div>
-    <div className="addPanel">
-      <DisplayButton title="Dodaj produkt" click={handleClickDisplayNewProduct}/>
-      {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct}/>}
-      <DisplayButton title="Dodaj artukuł" click={handleClickDisplayNewArticle}/>
-      {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle}/>}
-    </div>
-  </div>
+  </>
 }

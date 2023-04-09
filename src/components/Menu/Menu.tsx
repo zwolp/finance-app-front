@@ -14,19 +14,19 @@ export const Menu = (props: Props) => {
           to='/' 
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            home
+            strona główna
         </NavLink>
         <NavLink 
           to='/user'
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            user
+            użytkownicy
         </NavLink>
         <NavLink 
           to='/news'
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            news
+            aktualności
         </NavLink>
       </div>
       <div className="admin">

@@ -1,6 +1,10 @@
 .FinanceRow {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 5px;
+
+  span {
+    font-weight: bold;
+  }
 }

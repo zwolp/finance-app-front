@@ -1,64 +1,53 @@
 @import 'src/config/variables.scss';
 
-.position-fixed-container {
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 15px 20px;
-    width: 60%;
-    max-width: 600px;
-    background-color: #98b1c7;
-    border-radius: 10px;
-  }
+.AddUserForm {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 30px;
+  width: 45%;
+  max-width: 450px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #d3dbe1;
 
   form {
-    text-align: center;
-  }
-
-  .form-title {
-    margin: 0 auto 10px;
-    color: white;
-  }
-
-  label {
     display: flex;
-    justify-content: space-between;
-    margin: 5px 10px;
-  }
+    flex-direction: column;
+    margin: 15px 0;
 
-  .form-input {
-    width: 63%;
-    background-color: $secondary-color;
-    text-align: center;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-  }
+    label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
 
-  .form-input:focus {
-    background-color: #e2effc;
-  }
+      input {
+        width: 60%;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+      }
 
-  .btn {
-    margin: 25px auto 0;
-    padding: 4px 10px;
-    color: white;
-    max-width: 300px;
-    background-color: transparent;
-    text-transform: uppercase;
-    border-radius: 10px;
-    font-weight: 700;
-    border: 2px solid white;
-    cursor: pointer;
-  }
+      input:focus {
+        outline: none;
+      }
+    }
 
-  .btn:hover {
-    background-color: $secondary-color;
+    .button {
+      align-self: center;
+      margin-top: 16px;
+      width: 150px;
+      height: 30px;
+      background-color: transparent;
+      border: 1px solid;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background-color: $secondary-color;
+      transform: scale(1.1);
+    }
   }
 }

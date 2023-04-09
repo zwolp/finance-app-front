@@ -3,6 +3,7 @@ import { Loading } from "../../common/Loading/Loading";
 import { Error } from "../../common/Error/Error"
 import { Product } from "types";
 import { CurrentProductRow } from "./CurrentProductRow";
+import './CurrentProducts.scss'
 
 export const CurrentProducts = () => {
   const [list, setList] = useState<Product[] | []>([]);
@@ -40,8 +41,4 @@ export const CurrentProducts = () => {
       return <li key={i}><CurrentProductRow product={obj}/></li>
     })}
   </ul>
-/*   return <ul className="productsList">
-    {list.map((obj, i) => {
-    return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>})}
-  </ul> */
 }

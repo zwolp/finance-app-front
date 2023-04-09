@@ -3,6 +3,7 @@ import { Loading } from "../../../components/common/Loading/Loading";
 import { Error } from "../../../components/common/Error/Error";
 import { Article } from "types";
 import { CurrentArticleRow } from "./CurrentArticleRow";
+import './CurrentArticles.scss'
 
 export const CurrentArticles = () => {
   const [list, setList] = useState<Article[] | []>([]);
@@ -35,7 +36,7 @@ export const CurrentArticles = () => {
   if (list.length === 0) {
     return <p>Nie dodano jeszcze żadnego artykułu</p>
   }
-  return <ul className="CurrentProducts">
+  return <ul className="CurrentArticles">
     {list.map((obj, i) => {
       return <li key={i}>
         <CurrentArticleRow article={obj}/>

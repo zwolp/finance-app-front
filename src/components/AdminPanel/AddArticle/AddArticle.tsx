@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { currentDateToSend } from "../../../utils/getDate";
 import { Article } from "types";
+import './AddArticle.scss'
 
 const obj: Omit<Article, 'id'> = {
   title: '',
@@ -17,7 +18,6 @@ export const AddArticle = (props: Props) => {
 
   const saveArticle = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(article);
     try {
       const res = await fetch('http://localhost:3001/admin/add-article', {
         method: 'POST',
@@ -26,7 +26,6 @@ export const AddArticle = (props: Props) => {
         },
         body: JSON.stringify(article)
       });
-      console.log(res);
       if (res.status === 200) {
         setArticle(obj)
         props.hide()
@@ -60,7 +59,7 @@ export const AddArticle = (props: Props) => {
         onChange={e => setArticle({...article, description: e.target.value})}
       />
     </label>
-    <input type="submit" />
+    <button className="button">Dodaj</button>
   </form>
 </div>
 }

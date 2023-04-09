@@ -1,0 +1,17 @@
+.add-article {
+  form {
+    label {
+      text-align: center;
+      margin-bottom: 10px;
+      input {
+        width: 100%;
+      }
+      textarea {
+        padding: 2px;
+      }
+      textarea:focus {
+        outline: none;
+      }
+    }
+  }
+}

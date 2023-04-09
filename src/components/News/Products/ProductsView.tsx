@@ -3,6 +3,7 @@ import { ProductRow } from "./ProductRow/ProductRow";
 import { Product } from "types";
 import { Loading } from "../../../components/common/Loading/Loading";
 import { Error } from "../../../components/common/Error/Error";
+import "./ProductsView.scss"
 
 export const ProductView = () => {
   const [products, setProducts] = useState<Product[] | []>([])
@@ -33,12 +34,11 @@ export const ProductView = () => {
     return <Error>Przepraszamy wystąpił błąd, spróbuj później</Error>
   }
   return (
-    <div className="Products">
-      <h3>Produkty</h3>
+    <ul className="Products">
       {products.length > 0 ?
-        products.map(product => <li key={product.id}><ProductRow product={product}/></li>) :
+        products.map(product => <li key={product.id} className="product"><ProductRow product={product}/></li>) :
         <p>W bazie danych nie ma jeszcze żadnych produktów</p>
       }
-    </div>
+    </ul>
   )
 }

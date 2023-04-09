@@ -1,0 +1,80 @@
+@import 'src/config/variables.scss';
+
+.AdminPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 130px);
+
+  .show-products {
+    align-self: flex-end;
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  .show-products:hover {
+    background-color: $secondary-color;
+    transform: scale(1.1);
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 90%;
+
+    .add-article, .add-product {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+      width: 40%;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        padding: 10px 30px;
+        border: 1px solid;
+        border-radius: 5px;
+        background-color: #d3dbe1;
+
+        h4 {
+          text-align: center;
+          margin-bottom: 10px;
+          line-height: 30px;
+        }
+
+        input {
+          text-align: center;
+          border: 1px solid;
+          border-radius: 5px;
+        }
+
+        input:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        align-self: center;
+        padding: 5px 10px;
+        background-color: transparent;
+        border: 1px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: .2s;
+      }
+  
+      button:hover {
+        background-color: $secondary-color;
+        transform: scale(1.1);
+      }
+    }
+  }
+}

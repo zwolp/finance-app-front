@@ -6,27 +6,35 @@ import { ArticlesView } from "../../components/News/Articles/ArticlesView";
 
 export const News = () => {
   const [showProducts, setShowProducts] = useState(false);
+  const [title, setTitle] = useState('Artykuły');
   const [buttonText, setButtonText] = useState('Produkty');
 
   const handleClick = () => {
     if (showProducts) {
       setShowProducts(false);
+      setTitle('Artykuły')
       setButtonText('Produkty')
       return
     }
     setShowProducts(true);
+    setTitle('Produkty')
     setButtonText('Artykuły')
   }
 
-  return <div className="News">
+  return <>
     <ViewTitle title="Aktualności"/>
-    <button onClick={handleClick}>{buttonText}</button>
-    {
-      showProducts ? 
-      <ProductView/> :
-      <ArticlesView/>
-    }
+    <div className="News">
+      <div className="container">
+        <h3>{title}</h3>
+        <button onClick={handleClick}>{buttonText}</button>
+      </div>
+        {
+          showProducts ? 
+          <ProductView/> :
+          <ArticlesView/>
+        }
     </div>
+  </>
 }
 
 

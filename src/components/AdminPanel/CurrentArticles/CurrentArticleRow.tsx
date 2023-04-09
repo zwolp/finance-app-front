@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { currentDateToSend } from "../../../utils/getDate";
 import { Article } from "types";
+import './CurrentArticleRow.scss'
 
 type Props = {
   article: Article
@@ -42,11 +43,13 @@ export const CurrentArticleRow = (props: Props) => {
 
   return <>
     <div className="CurrentArticleRow">
-      <p>Data dodania: {currentDateToSend(new Date(props.article.date))}</p>
-      <p>Tytuł: {props.article.title}</p>
-      <button onClick={display}>{buttonText}</button>
+      <p><span>Data dodania:</span> {currentDateToSend(new Date(props.article.date))}</p>
+      <p><span>Tytuł:</span> {props.article.title}</p>
       {displayDescription ? <p>{props.article.description}</p> :null}
-      <button onClick={handleDeleteButton}>Usuń</button>
+      <div className="button-container">
+        <button onClick={display}>{buttonText}</button>
+        <button onClick={handleDeleteButton}>Usuń</button>
+      </div>
     </div>
     <p>{info}</p>
   </>

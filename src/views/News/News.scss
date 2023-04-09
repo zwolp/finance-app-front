@@ -1,5 +1,33 @@
+@import 'src/config/variables.scss';
+
 .News {
-  div {
-    margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 130px);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+
+    h3 {
+      font-size: 23px;
+    }
+  }
+
+  button {
+    align-self: flex-end;
+    width: 150px;
+    height: 30px;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .2s;
+  }
+
+  button:hover {
+    background-color: $secondary-color;
+    transform: scale(1.1);
   }
 }

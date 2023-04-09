@@ -5,7 +5,7 @@ import { User } from './views/Users/Users';
 import { News } from './views/News/News';
 import { SingleUser } from './views/SingleUser/SingleUser';
 import { Menu } from './components/Menu/Menu';
-import "./App.css"
+import "./App.scss"
 import { LoginPanel } from './views/Admin/LoginPanel';
 import { AdminPanel } from './views/Admin/AdminPanel';
 
@@ -16,7 +16,7 @@ export const App = () => {
   }
 
   return (
-    <>
+    <> 
       <Menu loggedAdmin={loggedAdmin}/>
       <div className="content">
         <Routes>

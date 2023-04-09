@@ -3,6 +3,7 @@ import { ArticleRow } from "./ArticleRow/ArticleRow";
 import { Article } from "types";
 import { Loading } from "../../../components/common/Loading/Loading";
 import { Error } from "../../../components/common/Error/Error";
+import "./ArticlesView.scss"
 
 export const ArticlesView = () => {
   const [articles, setArticles] = useState<Article[] | []>([])
@@ -34,7 +35,6 @@ export const ArticlesView = () => {
   }
   return (
     <div className="Articles">
-      <h3>Artykuły</h3>
       {articles.length > 0 ?
         articles.map(article => <li key={article.id}><ArticleRow article={article}/></li>) :
         <p>W bazie danych nie ma jeszcze żadnych artykułów</p>

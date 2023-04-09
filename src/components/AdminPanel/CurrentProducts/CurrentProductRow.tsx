@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Product } from "types";
+import './CurrentProductRow.scss'
 
 type Props = {
   product: Product,
@@ -63,13 +64,15 @@ export const CurrentProductRow = (props: Props) => {
   }
 
   return <div className="CurrentProductRow">
-    <div><span>Nazwa:</span><p>{props.product.name}</p></div>
-    <div><span>Oprocentowanie roczne:</span><p>{props.product.annualInterestRate} %</p></div>
-    <div><span>Czas trwania (dni):</span><p>{props.product.durationInDays}</p></div>
-    <div><span>Wkład finansowy:</span><p>{props.product.minContribution} - {props.product.maxContribution}</p></div>
-    <button onClick={display}>{buttonText}</button>
+    <p><span>Nazwa:</span> {props.product.name}</p>
+    <p><span>Oprocentowanie roczne:</span> {props.product.annualInterestRate} %</p>
+    <p><span>Czas trwania (dni):</span> {props.product.durationInDays}</p>
+    <p><span>Wkład finansowy:</span> {props.product.minContribution} - {props.product.maxContribution}</p>
     {displayDescription && <p>{props.product.description}</p>}
-    <button onClick={handleDeleteButton}>Usuń</button>
+    <div className="button-container">
+      <button onClick={handleDeleteButton}>Usuń</button>
+      <button onClick={display}>{buttonText}</button>
+    </div>
     <p>{info}</p>
   </div>
 }

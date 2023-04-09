@@ -1,0 +1,11 @@
+.CurrentProducts {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-between;
+  width: 60%;
+
+  li {
+    width: 48%;
+  }
+}

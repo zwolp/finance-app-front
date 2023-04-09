@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './UserRecord.scss'
+import user from './user.png'
 
 type Props = {
   id: string,
@@ -14,6 +15,7 @@ export const UserRecord = (props: Props) => {
   return <>
       <li key={props.id}  className="user">
         <NavLink to={userUrl} className="user-link">
+            <img src={user} alt="user" />
             <p className="name">{`${props.name} ${props.surname}`}</p>
             <p className="job">{props.job}</p>
         </NavLink>

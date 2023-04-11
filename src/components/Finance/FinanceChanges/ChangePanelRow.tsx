@@ -28,16 +28,18 @@ export const ChangePanelRow = (props: Props) => {
   return <div className="ChangePanelRow">
     <label>
       <p>{props.title}</p>
-      <input 
-        type="number" 
-        value={changeValue} 
-        onChange={(e) => {setChangeValue(Number(e.target.value))}}
-      />
-      <button 
-        onClick={() => {handleClick(props.valueName, changeValue)}}
-      >
-        zapisz
-      </button>
+      <div className="container">
+        <input 
+          type="number" 
+          value={changeValue} 
+          onChange={(e) => {setChangeValue(Number(e.target.value))}}
+        />
+        <button 
+          onClick={() => {handleClick(props.valueName, changeValue)}}
+        >
+          zapisz
+        </button>
+      </div>
     </label>
   </div>
 }

@@ -1,0 +1,64 @@
+@import 'src/config/variables.scss';
+
+.Forecast {
+  padding: 5px;
+  width: 30%;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      text-align: center;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    .button {
+      margin: 10px auto;
+      padding: 5px 10px;
+      width: 150px;
+      background-color: transparent;
+      border: 1px solid;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .button:hover {
+      background-color: $secondary-color;
+      transform: scale(1.1);
+    }
+  }
+
+  .forecast-info {
+    padding: 2px;
+    border: 1px solid;
+    border-radius: 5px;
+    text-align: center;
+
+    div {
+      margin-top: 10px;
+
+      h4 {
+        margin-bottom: 10px;
+      }
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        padding: 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: #d3dbe1;
+        border: 1px solid;
+      }
+    }
+  }
+}

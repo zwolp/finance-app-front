@@ -3,6 +3,7 @@ import { Error } from "../../common/Error/Error";
 import { Product } from "types";
 import { Loading } from "../../common/Loading/Loading";
 import { ProductRow } from "./ProductRow";
+import './ProductList.scss'
 
 type Props = {
   financeId: string,
@@ -41,7 +42,7 @@ export const ProductList = (props: Props) => {
   if (list.length === 0) {
     return <p>Chwilowo nie ma dostępnych produktów, spróbuj później</p>
   }
-  return <ul className="productsList">
+  return <ul className="ProductsList">
     {list.map((obj, i) => {
     return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>})}
   </ul>

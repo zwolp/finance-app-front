@@ -35,10 +35,10 @@ export const ProductOfUser = (props: Props) => {
   console.log('ok');
   return <>
     <div className="product">
-      <p>{product.name}</p>
-      <p>Produkt finansowy założony w dniu {currentDateToSend(new Date(props.startDate))}, planowane zakończenie {currentDateToSend(endDate(new Date(props.startDate), product.durationInDays))}</p>
-      <p>Wkład finansowy {props.resources}</p>
-      <p>Oczekiwany zysk {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate)}</p>
+      <p><span>{product.name}</span></p>
+      <p>Produkt finansowy założony w dniu <span>{currentDateToSend(new Date(props.startDate))}</span>, planowane zakończenie <span>{currentDateToSend(endDate(new Date(props.startDate), product.durationInDays))}</span></p>
+      <p><span>Wkład finansowy</span> {props.resources}</p>
+      <p><span>Oczekiwany zwrot</span> {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate) + props.resources}</p>
     </div>
     <DeleteProductButton id={props.id} productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
   </>

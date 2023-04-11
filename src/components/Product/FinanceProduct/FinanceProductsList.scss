@@ -1,0 +1,31 @@
+.FinanceProductsList {
+  margin: 15px;
+
+  h4 {
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+
+    li {
+      padding: 10px;
+      margin: 10px;
+      width: 30%;
+      background-color: #d3dbe1;
+      text-align: center;
+      border: 1px solid;
+      border-radius: 5px;
+
+      span {
+        font-weight: bold;
+      }
+
+      button {
+        margin-top: 5px;
+      }
+    }
+  }
+}

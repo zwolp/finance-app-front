@@ -33,7 +33,7 @@ export const SingleUser = () => {
   return <>
     <ViewTitle title={'Panel użytkownika'}/>
     <UserRecordPersonal user={user}/>
+    <DeleteUser id={String(id)} name={user.name}/>
     {user.financeId ? <UserRecordFinance financeId={user.financeId}/> : <AddFinanceForm id={id}/>}
-    <DeleteUser id={String(id)}/>
   </>
 }

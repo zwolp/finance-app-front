@@ -4,6 +4,7 @@ import { currentDateToSend, endDate, getDifference } from "../../../utils/getDat
 import { ForecastSavings } from "./ForecastSavings/ForecastSavings";
 import { ForecastProducts } from "./ForecastFinishedProducts/ForecastFinishedProducts";
 import { FinancialOperations } from "../../../utils/financeOperation";
+import './Forecast.scss'
 
 type Props = {
   salary: number,
@@ -57,11 +58,11 @@ export const Forecast = (props: Props) => {
   return <div className="Forecast">
     <form onSubmit={handleForm}>
       <input type="date" value={date} onChange={e => handleDate(e.target.value)}/>
-      <input type="submit" value="Prognozuj"/>
+      <input type="submit" value="Prognozuj" className="button"/>
     </form>
 
     {displayForecast && 
-      <div>
+      <div className="forecast-info">
         <ForecastSavings 
           title="Prognozowane oszczędności"
           expanse={props.expanse} 

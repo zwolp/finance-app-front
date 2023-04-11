@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";/* 
-import { Finance, financeProductRecord } from "../../../types/User"; */
-import { Finance, financeProductRecord } from "types";
+import React, { useEffect, useState } from "react";
+import { Finance, FinanceProductRecord } from "types";
 import { Error } from "../../common/Error/Error";
 import { Loading } from "../../common/Loading/Loading";
 import { FinanceChanges } from "../../Finance/FinanceChanges/FinanceChanges";
 import { FinanceProductsList } from "../../Product/FinanceProduct/FinanceProductsList";
 import { FinanceRecord } from "../../Finance/FinanceRecord/FinanceRecord";
 import { ProductList } from "../../Product/Product/ProductList";
+import { Forecast } from "../../Finance/Forecast/Forecast";
 import './UserRecordFinance.scss';
 
 type Props = {
@@ -15,7 +15,7 @@ type Props = {
 
 export const UserRecordFinance = (props: Props) => {
   const [finance, setFinance] = useState<Finance | null>(null);
-  const [financeAndProductsList, setFinanceAndProductsList] = useState<financeProductRecord[] | null>(null);
+  const [financeAndProductsList, setFinanceAndProductsList] = useState<FinanceProductRecord[] | null>(null);
   const [displayProducts, setDisplayProducts] = useState<boolean>(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
@@ -69,6 +69,12 @@ export const UserRecordFinance = (props: Props) => {
           salary={finance.salary} 
           monthlyExpanse={finance.monthlyExpanse} 
           savings= {finance.savings}
+        />
+        <Forecast
+          salary={finance.salary} 
+          expanse={finance.monthlyExpanse} 
+          savings={finance.savings}
+          financeId={props.financeId}
         />
       </div>
       {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}

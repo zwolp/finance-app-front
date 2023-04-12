@@ -16,7 +16,7 @@ export const App = () => {
   }
 
   return (
-    <> 
+    <div className='App'> 
       <Menu loggedAdmin={loggedAdmin}/>
       <div className="content">
         <Routes>
@@ -27,6 +27,6 @@ export const App = () => {
           <Route path='/admin' element={loggedAdmin ? <AdminPanel/> : <LoginPanel handleLoggedAdmin={handleLoggedAdmin}/>}/>
         </Routes>
       </div>
-    </>
+    </div>
   );
 }

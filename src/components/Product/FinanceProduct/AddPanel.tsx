@@ -92,7 +92,8 @@ export const AddPanel = (props: Props) => {
         />
       <input 
         type="submit" 
-        value="Dodaj produkt"
+        value="Dodaj"
+        className="button"
         onClick={handleClick}
         />
     </form>

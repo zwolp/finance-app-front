@@ -4,13 +4,17 @@
   justify-content: space-between;
   min-height: calc(100vh - 130px);
 
+  .greeting {
+    margin-bottom: 10px;
+  }
+
   .photo {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 600px;
-    height: 300px;
-    background-image: url("main-img.png");
-    background-position: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1300px;
+    height: 500px;
+    background-image: url("main-img.jpg");
+    background-position: revert;
     background-size: cover;
   }
 }

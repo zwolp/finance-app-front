@@ -19,13 +19,14 @@ export const ProductRow = (props: Props) => {
   }
 
   return <>
-    <li onClick={handleClick}>
-      <p>{name}</p>
-      <p>{annualInterestRate} % w skali roku</p>
-      <p>Okres {durationInDays} dni</p>
-      <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
-    </li>
-    {displayAddPanel && 
+    <li>
+      <div onClick={handleClick}>
+        <p>{name}</p>
+        <p>{annualInterestRate} % w skali roku</p>
+        <p>Okres {durationInDays} dni</p>
+        <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
+      </div>
+      {displayAddPanel && 
       <AddPanel 
         financeId={props.financeId} 
         productId={id} 
@@ -34,5 +35,6 @@ export const ProductRow = (props: Props) => {
         minContribution={props.product.minContribution}
         maxContribution={props.product.maxContribution}
     />}
+    </li>
   </>
 }

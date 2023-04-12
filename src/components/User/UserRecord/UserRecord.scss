@@ -31,3 +31,9 @@
 .user:hover {
   transform: scale(1.1);
 }
+
+@media (max-width: 767px) {
+  .user {
+    min-width: 200px;
+  }
+}

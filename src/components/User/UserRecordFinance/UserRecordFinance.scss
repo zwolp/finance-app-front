@@ -19,12 +19,22 @@
   .flex-row {
     display: flex;
     justify-content: space-around;
-
-    .FinanceRecord {
-      width: 40%;
-    }
   }
+  
   .addProduct {
     text-align: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .UserRecordFinance {
+    .flex-row {
+      flex-direction: column;
+      align-items: center;
+
+      div {
+        margin: 5px auto;
+      }
+    }
   }
 }

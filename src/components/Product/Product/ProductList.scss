@@ -3,19 +3,62 @@
 .ProductsList {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   margin: 15px 10px;
   list-style: none;
 
   li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 5px;
     padding: 10px;
+    max-width: 200px;
     border: 1px solid;
     border-radius: 5px;
     cursor: pointer;
     transition: .2s;
+
+    .addProductForm {
+      margin-top: 5px;
+      width: 90%;
+
+      input {
+        margin-bottom: 3px;
+        width: 100%;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+      }
+
+      input:focus {
+        outline: none;
+      }
+
+      .button {
+        width: 100px;
+        padding: 5px 10px;
+        background-color: transparent;
+        border: 1px solid;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .button:hover {
+        background-color: $secondary-color;
+        transform: scale(1.1);
+      }
+    }
   }
 
   li:hover {
-    background-color: $secondary-color;
+    background-color: #d3dbe1;
+  }
+}
+
+@media (max-width: 767px) {
+  .ProductsList {
+    flex-direction: column;
   }
 }

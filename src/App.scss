@@ -6,28 +6,51 @@
   box-sizing: border-box;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  .content {
-    margin: 10px;
-    min-height: calc(100vh - 79px);
+  .App {
+    max-width: 100vw;
 
-    .DeleteUser {
-      text-align: right;
-      margin-top: -50px;
-      margin-bottom: 20px;
 
-      button {
-        margin-right: 15px;
-        padding: 5px 10px;
-        background-color: #ff252599;
-        border: 1px solid;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.2s;
-      }
+    .content {
+      margin: 10px auto;
+      width: 95%;
+      max-width: 1400px;
+      min-height: calc(100vh - 79px);
 
-      button:hover {
-        transform: scale(1.1);
+      .DeleteUser {
+        text-align: right;
+        margin-top: -50px;
+        margin-bottom: 20px;
+
+        button {
+          margin-right: 15px;
+          padding: 5px 10px;
+          background-color: #ff252599;
+          border: 1px solid;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: 0.2s;
+        }
+
+        button:hover {
+          transform: scale(1.1);
+        }
       }
     }
   }
+}
+
+@media (max-width: 767px) {
+  .App {
+    .content {
+      .DeleteUser {
+        margin-top: 0;
+        text-align: center;
+    
+        button {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
 }

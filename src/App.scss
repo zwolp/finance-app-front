@@ -18,7 +18,7 @@
       button {
         margin-right: 15px;
         padding: 5px 10px;
-        background-color: transparent;
+        background-color: #ff252599;
         border: 1px solid;
         border-radius: 5px;
         cursor: pointer;
@@ -26,7 +26,6 @@
       }
 
       button:hover {
-        background-color: $secondary-color;
         transform: scale(1.1);
       }
     }

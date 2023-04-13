@@ -73,6 +73,6 @@ export const CurrentProductRow = (props: Props) => {
       <button onClick={handleDeleteButton}>Usuń</button>
       <button onClick={display}>{buttonText}</button>
     </div>
-    <p>{info}</p>
+    <p className="info">{info}</p>
   </div>
 }

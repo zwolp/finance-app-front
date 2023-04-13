@@ -11,6 +11,10 @@
     border: 1px solid #a1a1a1;
     border-radius: 5px;
 
+    p {
+      max-width: 99%;
+    }
+
     .article-date {
       text-align: right;
     }

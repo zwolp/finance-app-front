@@ -51,6 +51,6 @@ export const CurrentArticleRow = (props: Props) => {
         <button onClick={handleDeleteButton}>Usuń</button>
       </div>
     </div>
-    <p>{info}</p>
+    <p className="info">{info}</p>
   </>
 }

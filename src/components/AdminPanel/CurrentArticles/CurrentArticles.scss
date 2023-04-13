@@ -1,6 +1,12 @@
 .CurrentArticles {
+  margin: 10px;
   list-style: none;
   width: 60%;
+  
+  .info {
+    text-align: center;
+    background-color: rgba(255, 37, 37, 0.6);
+  }
 }
 
 @media (max-width: 767px) {

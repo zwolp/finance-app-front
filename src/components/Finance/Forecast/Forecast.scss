@@ -63,3 +63,14 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .Forecast {
+    form {
+      .button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+  }
+}

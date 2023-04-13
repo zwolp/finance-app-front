@@ -39,6 +39,19 @@
   }
 }
 
+@media (max-width: 767px) {
+.CurrentProductRow {
+  width: 98%;
+  
+  .button-container {
+    button:hover {
+      background-color: transparent;
+      transform: none;
+    }
+  }
+}
+}
+
 /* padding: 20px;
 width: 40%;
 max-width: 450px;

@@ -32,7 +32,6 @@ export const ProductOfUser = (props: Props) => {
   if (!product) {
     return <Loading/>
   }
-  console.log('ok');
   return <>
     <div className="product">
       <p><span>{product.name}</span></p>

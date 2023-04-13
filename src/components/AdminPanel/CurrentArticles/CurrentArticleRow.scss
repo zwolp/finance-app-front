@@ -36,3 +36,16 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .CurrentArticleRow {
+    width: 98%;
+    
+    .button-container {
+      button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+  }
+}

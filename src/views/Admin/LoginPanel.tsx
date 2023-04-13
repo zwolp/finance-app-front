@@ -34,7 +34,6 @@ export const LoginPanel = (props: Props) => {
   const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     checkAdmin();
-    console.log(name, password);
   }
 
   const showPassword = () => {

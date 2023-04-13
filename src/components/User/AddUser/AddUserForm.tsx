@@ -10,7 +10,6 @@ export const AddUserForm = () => {
   
   const saveUser = async (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(user);
     try {
       const res = await fetch('http://localhost:3001/user/', {
         method: 'POST',
@@ -29,7 +28,6 @@ export const AddUserForm = () => {
   }
 
   return (
-  //  <div className="position-fixed-container">
       <div className="AddUserForm">
         <h3 className="form-title">Dodaj użytkownika</h3>
         <form onSubmit={saveUser}>
@@ -48,6 +46,5 @@ export const AddUserForm = () => {
           <input type="submit" className="button" value='Dodaj'/>
         </form>
       </div>
-//    </div>
   )
 }

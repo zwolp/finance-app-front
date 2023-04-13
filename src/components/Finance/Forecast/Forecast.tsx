@@ -41,7 +41,6 @@ export const Forecast = (props: Props) => {
 
   useEffect(() => {
     getProductsOfUser();
-    console.log('pobrano listę');
   },[props.financeId])
 
   useEffect(() => {    
@@ -51,8 +50,6 @@ export const Forecast = (props: Props) => {
     if (productsOfUser.length > 0) {
       setFinishedProducts(productsOfUser.filter(product => forecastDate.getTime() >= (endDate(new Date(product.startDate), product.duration)).getTime()))
     }
-    console.log(date, monthDifference);
-    console.log(finishedProducts);
   }, [date])
 
   return <div className="Forecast">

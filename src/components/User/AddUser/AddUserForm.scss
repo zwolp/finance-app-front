@@ -6,6 +6,7 @@
   padding: 15px 30px;
   width: 45%;
   max-width: 450px;
+  min-width: 300px;
   text-align: center;
   border: 1px solid;
   border-radius: 5px;
@@ -54,6 +55,11 @@
 
 @media (max-width: 767px) {
   .AddUserForm {
-    min-width: 250px;
+    form {
+      .button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
   }
 }

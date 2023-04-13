@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100vh - 130px);
 
   .greeting {
     margin-bottom: 10px;
@@ -11,10 +10,23 @@
   .photo {
     margin: 0 auto;
     width: 100%;
-    max-width: 1300px;
-    height: 500px;
+    max-width: 1400px;
+    height: calc(100vh - 170px);
     background-image: url("main-img.jpg");
     background-position: revert;
     background-size: cover;
+  }
+}
+
+@media (max-width: 767px) {
+  .Home {
+
+    .greeting {
+      font-size: 13px;
+    }
+
+    .photo {
+      height: calc(100vh - 268px);
+    }
   }
 }

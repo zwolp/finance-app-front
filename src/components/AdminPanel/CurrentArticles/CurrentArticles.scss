@@ -2,3 +2,9 @@
   list-style: none;
   width: 60%;
 }
+
+@media (max-width: 767px) {
+  .CurrentArticles {
+    width: 90%;
+  }
+}

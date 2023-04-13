@@ -34,10 +34,10 @@ export const ArticlesView = () => {
     return <Error>Przepraszamy wystąpił błąd, spróbuj później</Error>
   }
   return (
-    <div className="Articles">
+    <ul className="Articles">
       {articles.length > 0 ?
         articles.map(article => <li key={article.id}><ArticleRow article={article}/></li>) :
         <p>W bazie danych nie ma jeszcze żadnych artykułów</p>
       }
-    </div>
+    </ul>
 )}

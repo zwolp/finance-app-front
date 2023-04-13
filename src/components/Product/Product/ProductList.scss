@@ -60,5 +60,16 @@
 @media (max-width: 767px) {
   .ProductsList {
     flex-direction: column;
+
+    li {
+      .button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+
+    li:hover {
+      background-color: none;
+    }
   }
 }

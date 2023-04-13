@@ -79,3 +79,34 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .AdminPanel {
+
+    .show-products {
+      align-self: center;
+      background-color: transparent;
+      transform: none;
+    }
+
+    .show-products:hover {
+      background-color: transparent;
+      transform: none;
+    }
+    
+    .container {
+      flex-direction: column-reverse;
+      align-items: center;
+
+      .add-article, .add-product {
+        margin-bottom: 10px;
+        width: 80%;
+      }
+
+      button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+  }
+}

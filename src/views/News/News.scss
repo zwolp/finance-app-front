@@ -3,7 +3,6 @@
 .News {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 130px);
 
   .container {
     display: flex;
@@ -29,5 +28,18 @@
   button:hover {
     background-color: $secondary-color;
     transform: scale(1.1);
+  }
+}
+
+@media (max-width: 767px) {
+  .News {
+    button {
+      width: 100px;
+    }
+
+    button:hover {
+      background-color: transparent;
+      transform: none;
+    }
   }
 }

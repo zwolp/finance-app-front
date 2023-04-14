@@ -1,4 +1,5 @@
 import React, { SyntheticEvent, useState } from "react";
+import './AddFinance.scss'
 
 type Props = {
   id: string | undefined,
@@ -46,7 +47,7 @@ export const AddFinanceForm = (props: Props) => {
           <p>Miesięczne wydatki</p>
           <input type="number" value={finance.monthlyExpanse} onChange={e => {setFinance({...finance, monthlyExpanse: e.target.value})}}/>
         </label>
-        <input type="submit" className="btn"/>
+        <input type="submit" className="button"/>
       </form>
     </div>
   </>

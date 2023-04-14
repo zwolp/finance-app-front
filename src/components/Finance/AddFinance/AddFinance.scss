@@ -1,0 +1,67 @@
+@import 'src/config/variables.scss';
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 150px auto 10px;
+  padding: 15px 30px;
+  width: 45%;
+  max-width: 450px;
+  min-width: 300px;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #d3dbe1;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+      input {
+        width: 30%;
+        text-align: center;
+        border: 1px solid;
+        border-radius: 5px;
+      }
+
+      input:focus {
+        outline: none;
+      }
+    }
+
+    .button {
+      align-self: center;
+      margin-top: 16px;
+      width: 150px;
+      height: 30px;
+      background-color: transparent;
+      border: 1px solid;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .button:hover {
+      background-color: $secondary-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .form-container {
+    margin-top: 50px;
+    form {
+      .button:hover {
+        background-color: transparent;
+        transform: none;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   financeId: string,
@@ -15,7 +16,7 @@ export const ChangePanelRow = (props: Props) => {
       return
     }
 
-    await fetch('http://localhost:3001/finance/' + props.financeId, {
+    await fetch(apiUrl + '/finance/' + props.financeId, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

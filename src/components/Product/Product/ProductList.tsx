@@ -4,6 +4,7 @@ import { Product } from "types";
 import { Loading } from "../../common/Loading/Loading";
 import { ProductRow } from "./ProductRow";
 import './ProductList.scss'
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   financeId: string,
@@ -18,7 +19,7 @@ export const ProductList = (props: Props) => {
 
   const handleProducts = async () => {
     try {
-    const res = await fetch('http://localhost:3001/product/');
+    const res = await fetch(apiUrl + '/product/');
     const data = (await res.json()) as Product[];
     setList(data)
     setLoading(false)

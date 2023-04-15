@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './LoginPanel.scss'
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
+import { apiUrl } from "../../config/api"
 
 type Props = {
   handleLoggedAdmin: (isLogged: boolean) => void
@@ -14,7 +15,7 @@ export const LoginPanel = (props: Props) => {
 
   const checkAdmin = async () => {
     try {
-      const res = await fetch('http://localhost:3001/admin/login', {
+      const res = await fetch(apiUrl + '/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

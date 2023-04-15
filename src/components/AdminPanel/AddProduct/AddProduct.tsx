@@ -1,6 +1,7 @@
 import React, { SyntheticEvent, useState } from "react";
 import { ProductWithoutId } from "types";
 import './AddProduct.scss';
+import { apiUrl } from "../../../config/api";
 
 const obj: ProductWithoutId = {
   name: '',
@@ -22,7 +23,7 @@ export const AddProduct = (props: Props) => {
     e.preventDefault();
     console.log(product);
     try {
-      const res = await fetch('http://localhost:3001/product/', {
+      const res = await fetch(apiUrl + '/product/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

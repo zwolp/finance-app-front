@@ -4,6 +4,7 @@ import { Error } from "../../../components/common/Error/Error";
 import { Article } from "types";
 import { CurrentArticleRow } from "./CurrentArticleRow";
 import './CurrentArticles.scss'
+import { apiUrl } from "../../../config/api";
 
 export const CurrentArticles = () => {
   const [list, setList] = useState<Article[] | []>([]);
@@ -12,7 +13,7 @@ export const CurrentArticles = () => {
 
   const handleArticles = async () => {
     try {
-    const res = await fetch('http://localhost:3001/admin/articles');
+    const res = await fetch(apiUrl + '/admin/articles');
     const data = (await res.json()) as Article[];
     setList(data)
     setLoading(false)

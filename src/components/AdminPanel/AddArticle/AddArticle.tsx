@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useState } from "react";
 import { currentDateToSend } from "../../../utils/getDate";
 import { Article } from "types";
 import './AddArticle.scss'
+import { apiUrl } from "../../../config/api";
 
 const obj: Omit<Article, 'id'> = {
   title: '',
@@ -19,7 +20,7 @@ export const AddArticle = (props: Props) => {
   const saveArticle = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:3001/admin/add-article', {
+      const res = await fetch(apiUrl + '/admin/add-article', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -5,7 +5,7 @@ import { ForecastSavings } from "./ForecastSavings/ForecastSavings";
 import { ForecastProducts } from "./ForecastFinishedProducts/ForecastFinishedProducts";
 import { FinancialOperations } from "../../../utils/financeOperation";
 import './Forecast.scss'
-
+import { apiUrl } from "../../../config/api";
 type Props = {
   salary: number,
   expanse: number,
@@ -22,7 +22,7 @@ export const Forecast = (props: Props) => {
 
   const getProductsOfUser = async () => {
     try {
-      const res = await fetch('http://localhost:3001/finance-product/forecast/' + props.financeId);
+      const res = await fetch(apiUrl + '/finance-product/forecast/' + props.financeId);
       const data = await res.json();
       setProductsOfUser(data)
     } catch (e) {

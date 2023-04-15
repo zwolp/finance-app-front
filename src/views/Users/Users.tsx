@@ -6,6 +6,7 @@ import { UsersList } from "../../components/User/UsersList/UsersList";
 import { UserPersonal } from "types"
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import "./Users.scss"
+import { apiUrl } from "../../config/api"
 
 export const User = () => {
   const [users, setUsers] = useState<UserPersonal[]>([]);
@@ -14,7 +15,7 @@ export const User = () => {
 
   const handleUsers = async () => {
     try {
-      const res = await fetch('http://localhost:3001/user/');
+      const res = await fetch(apiUrl + '/user');
       const data = await res.json() as UserPersonal[];
       setUsers(data);
       setLoading(false);

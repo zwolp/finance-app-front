@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { currentDateToSend } from "../../../utils/getDate";
 import { Article } from "types";
 import './CurrentArticleRow.scss'
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   article: Article
@@ -26,7 +27,7 @@ export const CurrentArticleRow = (props: Props) => {
 
   const deleteArticle = async (id: string) => {
     try {
-      const res = await fetch('http://localhost:3001/admin/article/' + id, {
+      const res = await fetch(apiUrl + '/admin/article/' + id, {
         method: 'DELETE',
       })
       return res

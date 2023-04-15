@@ -8,6 +8,7 @@ import { FinanceRecord } from "../../Finance/FinanceRecord/FinanceRecord";
 import { ProductList } from "../../Product/Product/ProductList";
 import { Forecast } from "../../Finance/Forecast/Forecast";
 import './UserRecordFinance.scss';
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   financeId: string;
@@ -22,7 +23,7 @@ export const UserRecordFinance = (props: Props) => {
 
   const handleFinance = async () => {
     try {
-      const res = await fetch('http://localhost:3001/finance/' + props.financeId);
+      const res = await fetch(apiUrl + '/finance/' + props.financeId);
       const data = await res.json();
       await setFinance(data);
       await setLoading(false);
@@ -34,7 +35,7 @@ export const UserRecordFinance = (props: Props) => {
   } 
   const handleFinanceAndProduct = async () => {
     try {
-      const res = await fetch('http://localhost:3001/finance-product/user/' + props.financeId);
+      const res = await fetch(apiUrl + '/finance-product/user/' + props.financeId);
       const data = await res.json();
       await setFinanceAndProductsList(data);
     } catch (e) {
@@ -55,7 +56,6 @@ export const UserRecordFinance = (props: Props) => {
     return <Loading/>
   }
   if (finance) {
-    /* const userSavings = finance.savings - FinancialOperations.financialCushion(finance.monthlyExpanse); */
 
     return <div className="UserRecordFinance">
       <div className="flex-row">

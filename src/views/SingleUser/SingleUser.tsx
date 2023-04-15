@@ -8,6 +8,7 @@ import { User } from "types";
 import './SingleUser.css'
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import { DeleteUser } from "../../components/User/DeleteUser/DeleteUser";
+import { apiUrl } from "../../config/api"
 
 export const SingleUser = () => {
   const [user, setUser] = useState<User | null>(null);
@@ -15,7 +16,7 @@ export const SingleUser = () => {
 
   const handleUser = async () => {
     try {
-      const res = await fetch('http://localhost:3001/user/' + id);
+      const res = await fetch(apiUrl + '/user/' + id);
       const data = await res.json();
       setUser(data);
     } catch (e) {

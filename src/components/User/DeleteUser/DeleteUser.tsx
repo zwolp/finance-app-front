@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   id: string,
@@ -12,7 +13,7 @@ export const DeleteUser = (props: Props) => {
     const confirm = window.confirm(`Czy na pewno chcesz usunąć użytkownika ${props.name}?`)
     if (confirm) {
       try {
-        const res = await fetch('http://localhost:3001/user/' + id, {
+        const res = await fetch(apiUrl + '/user/' + id, {
           method: 'Delete'
         })
         if (res.status === 200) {

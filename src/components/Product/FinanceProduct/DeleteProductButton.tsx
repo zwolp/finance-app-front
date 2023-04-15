@@ -1,4 +1,5 @@
 import React from "react";
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   id: string,
@@ -10,21 +11,9 @@ type Props = {
 
 export const DeleteProductButton = (props: Props) => {
 
-/*   const deleteProduct = async () => {
-    try {
-    await fetch(`http://localhost:3001/product/${props.financeId}/${props.productId}`, {
-      method: 'DELETE',
-      headers: {
-        'Content-Type':'application/json',
-      },
-    })
-    } catch (e) {
-      console.log(e);
-    };
-  }; */
   const deleteProduct = async () => {
     try {
-    await fetch(`http://localhost:3001/finance-product/` + props.id, {
+    await fetch(apiUrl + '/finance-product/' + props.id, {
       method: 'DELETE',
     })
     } catch (e) {
@@ -33,7 +22,7 @@ export const DeleteProductButton = (props: Props) => {
   };
   const changeSavings = async (body: {savings: number}) => {
     try {
-      await fetch('http://localhost:3001/finance/' + props.financeId, {
+      await fetch(apiUrl + '/finance/' + props.financeId, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FinancialOperations } from "../../../utils/financeOperation";
 import { FinanceProductRecord } from "types";
 import { currentDateToSend} from "../../../utils/getDate";
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   financeId: string,
@@ -19,7 +20,7 @@ export const AddPanel = (props: Props) => {
   const postProduct = async (body: FinanceProductRecord) => {
     console.log(props.savings);
     try {
-      const res = await fetch('http://localhost:3001/finance-product/', {
+      const res = await fetch(apiUrl + '/finance-product/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -33,7 +34,7 @@ export const AddPanel = (props: Props) => {
   } 
   const changeSavings = async (body: {savings: number}) => {
     try {
-      await fetch('http://localhost:3001/finance/' + props.financeId, {
+      await fetch(apiUrl + '/finance/' + props.financeId, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json'

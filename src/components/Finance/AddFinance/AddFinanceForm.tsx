@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import './AddFinance.scss'
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   id: string | undefined,
@@ -16,7 +17,7 @@ export const AddFinanceForm = (props: Props) => {
     e.preventDefault();
     console.log(finance);
     try {
-      const res = await fetch('http://localhost:3001/finance/' + props.id, {
+      const res = await fetch(apiUrl + '/finance/' + props.id, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

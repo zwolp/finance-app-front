@@ -4,6 +4,7 @@ import { FinancialOperations } from "../../../utils/financeOperation";
 import { currentDateToSend, endDate } from "../../../utils/getDate";
 import { Loading } from "../../common/Loading/Loading";
 import { DeleteProductButton } from "../FinanceProduct/DeleteProductButton";
+import { apiUrl } from "../../../config/api";
 
 type Props = {
   id: string,
@@ -20,7 +21,7 @@ export const ProductOfUser = (props: Props) => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await fetch('http://localhost:3001/product/' + props.productId);
+        const res = await fetch(apiUrl + '/product/' + props.productId);
         const data = await res.json();
         setProduct(data);
       } catch (e) {

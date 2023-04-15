@@ -12,20 +12,12 @@ export const AdminPanel = () => {
   const [buttonText, setButtonText] = useState('Produkty');
   const [displayNewProduct, setDisplayNewProduct] = useState(false);
   const [displayNewArticle, setDisplayNewArticle] = useState(false);
-  const [displayProducts, setDisplayProducts] = useState(false);
-  const [displayArticles, setDisplayArticles] = useState(false);
 
   const handleClickDisplayNewProduct = () => {
     displayNewProduct ? setDisplayNewProduct(false) : setDisplayNewProduct(true)
   }
   const handleClickDisplayNewArticle = () => {
     displayNewArticle ? setDisplayNewArticle(false) : setDisplayNewArticle(true)
-/*   }
-  const handleClickDisplayProducts = () => {
-    displayProducts ? setDisplayProducts(false) : setDisplayProducts(true)
-  }
-  const handleClickDisplayArticles = () => {
-    displayArticles ? setDisplayArticles(false) : setDisplayArticles(true) */
   }
 
   const handleShowProducts = () => {
@@ -61,14 +53,6 @@ export const AdminPanel = () => {
           </div>
         </>
       }
-{/*         <DisplayButton title="Produkty" click={handleClickDisplayProducts}/>
-        {displayProducts && <CurrentProducts/>} */}
-{/*         <DisplayButton title="Artukuły" click={handleClickDisplayArticles}/>
-        {displayArticles && <CurrentArticles/>}
-        <DisplayButton title="Dodaj produkt" click={handleClickDisplayNewProduct}/>
-        {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct}/>}
-        <DisplayButton title="Dodaj artukuł" click={handleClickDisplayNewArticle}/>
-        {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle}/>} */}
     </div>
   </>
 }

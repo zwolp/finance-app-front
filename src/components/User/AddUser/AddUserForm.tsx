@@ -1,5 +1,6 @@
 import React, { SyntheticEvent, useState } from "react";
 import './AddUserForm.scss'
+import { apiUrl } from "../../../config/api"
 
 export const AddUserForm = () => {
   const [user, setUser] = useState({
@@ -11,7 +12,7 @@ export const AddUserForm = () => {
   const saveUser = async (e: SyntheticEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:3001/user/', {
+      const res = await fetch(apiUrl + '/user/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

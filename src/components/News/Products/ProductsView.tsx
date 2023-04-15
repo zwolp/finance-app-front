@@ -4,6 +4,7 @@ import { Product } from "types";
 import { Loading } from "../../../components/common/Loading/Loading";
 import { Error } from "../../../components/common/Error/Error";
 import "./ProductsView.scss"
+import { apiUrl } from "../../../config/api";
 
 export const ProductView = () => {
   const [products, setProducts] = useState<Product[] | []>([])
@@ -12,7 +13,7 @@ export const ProductView = () => {
 
   const getProducts = async () => {
     try {
-      const res = await fetch('http://localhost:3001/product');
+      const res = await fetch(apiUrl + '/product');
       const data = await res.json();
       setProducts(data)
       setLoading(false)

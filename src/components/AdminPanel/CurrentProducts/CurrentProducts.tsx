@@ -4,6 +4,7 @@ import { Error } from "../../common/Error/Error"
 import { Product } from "types";
 import { CurrentProductRow } from "./CurrentProductRow";
 import './CurrentProducts.scss'
+import { apiUrl } from "../../../config/api"
 
 export const CurrentProducts = () => {
   const [list, setList] = useState<Product[] | []>([]);
@@ -12,7 +13,7 @@ export const CurrentProducts = () => {
 
   const handleProducts = async () => {
     try {
-    const res = await fetch('http://localhost:3001/product/');
+    const res = await fetch(apiUrl + '/product/');
     const data = (await res.json()) as Product[];
     setList(data)
     setLoading(false)

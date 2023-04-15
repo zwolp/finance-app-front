@@ -4,6 +4,7 @@ import { Article } from "types";
 import { Loading } from "../../../components/common/Loading/Loading";
 import { Error } from "../../../components/common/Error/Error";
 import "./ArticlesView.scss"
+import { apiUrl } from "../../../config/api";
 
 export const ArticlesView = () => {
   const [articles, setArticles] = useState<Article[] | []>([])
@@ -12,7 +13,7 @@ export const ArticlesView = () => {
 
   const getArticles = async () => {
     try {
-      const res = await fetch('http://localhost:3001/admin/articles');
+      const res = await fetch(apiUrl + '/admin/articles');
       const data = await res.json();
       setArticles(data)
       setLoading(false)

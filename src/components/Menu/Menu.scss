@@ -16,8 +16,7 @@ header {
     text-transform: uppercase;
     border-radius: 2px;
     font-size: 0.9em;
-    text-decoration: none;/* 
-    border: 2px solid white; */
+    text-decoration: none;
     cursor: pointer;
     transition: 1.5s;
   }
@@ -29,11 +28,9 @@ header {
 
   a:hover, button:hover {
     border-bottom: 1px solid;
-    // background-color: $secondary-color;
   }
 
   .active {
-    // background-color: $secondary-color;
     border-bottom: 1px solid;
   }
 
@@ -42,3 +39,22 @@ header {
     align-items: center;
   }
 } 
+
+@media (max-width: 767px) {
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      padding: 5px 0;
+    }
+
+    a {
+      text-align: center;
+    }
+  }
+}

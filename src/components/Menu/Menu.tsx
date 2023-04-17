@@ -1,12 +1,15 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Menu.scss"
-
 type Props = {
   loggedAdmin: boolean,
+  language: any,
+  changeLanguage: () => void,
+  buttonText: string,
 }
 
 export const Menu = (props: Props) => {
+
   return (
     <header>
       <div className="buttons">
@@ -14,34 +17,37 @@ export const Menu = (props: Props) => {
           to='/' 
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            strona główna
+            {props.language.menu.mainSite}
         </NavLink>
         <NavLink 
           to='/user'
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            użytkownicy
+            {props.language.menu.users}
         </NavLink>
         <NavLink 
           to='/news'
           className={({ isActive }) => isActive ? 'active' : undefined}
         >
-            aktualności
+            {props.language.menu.news}
         </NavLink>
       </div>
       <div className="admin">
+        <button className="language-button" onClick={props.changeLanguage}>
+          {props.buttonText}
+        </button>
         {props.loggedAdmin && 
           <button
           onClick={() => {window.location.reload()}}
           >
-            wyloguj
+            {props.language.menu.logOut}
           </button> 
         }
       <NavLink
         to='/admin'
         className={({ isActive }) => isActive ? 'active' : undefined}
       >
-        administrator
+        {props.language.menu.admin}
       </NavLink>
       </div>
     </header>

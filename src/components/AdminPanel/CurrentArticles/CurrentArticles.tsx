@@ -6,7 +6,11 @@ import { CurrentArticleRow } from "./CurrentArticleRow";
 import './CurrentArticles.scss'
 import { apiUrl } from "../../../config/api";
 
-export const CurrentArticles = () => {
+type Props = {
+  language: any,
+}
+
+export const CurrentArticles = (props: Props) => {
   const [list, setList] = useState<Article[] | []>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -32,15 +36,15 @@ export const CurrentArticles = () => {
     return <Loading/>
   }
   if (error) {
-    return <Error>Przepraszamy, wystąpił błąd</Error>
+    return <Error>{props.language.error}</Error>
   }
   if (list.length === 0) {
-    return <p>Nie dodano jeszcze żadnego artykułu</p>
+    return <p>{props.language.currentArticles.emptyList}</p>
   }
   return <ul className="CurrentArticles">
     {list.map((obj, i) => {
       return <li key={i}>
-        <CurrentArticleRow article={obj}/>
+        <CurrentArticleRow article={obj} language={props.language}/>
       </li>
     })}
   </ul>

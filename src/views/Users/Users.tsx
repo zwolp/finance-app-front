@@ -8,7 +8,11 @@ import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import "./Users.scss"
 import { apiUrl } from "../../config/api"
 
-export const User = () => {
+type Props = {
+  language: any,
+}
+
+export const User = (props: Props) => {
   const [users, setUsers] = useState<UserPersonal[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -22,7 +26,7 @@ export const User = () => {
     } catch (e) {
       console.log(e);
       setLoading(false)
-      setError('Wystąpił błąd, spróbuj później.')
+      setError(props.language.error)
     }
   };
 
@@ -31,12 +35,12 @@ export const User = () => {
   },[]);
 
   return <>
-    <ViewTitle title="Użytkownicy"/>
+    <ViewTitle title={props.language.users.title}/>
     <div className="Users">
       {loading && <Loading/>}
       {error && <Error>{error}</Error>}
       {users.length && <UsersList list={users}/>}
-      <AddUserForm/>
+      <AddUserForm language={props.language}/>
     </div>
   </>
 }

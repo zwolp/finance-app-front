@@ -10,7 +10,8 @@ type Props = {
   savings: number,
   monthlyExpanse: number,
   minContribution: number,
-  maxContribution: number
+  maxContribution: number,
+  language: any,
 }
 
 export const AddPanel = (props: Props) => {
@@ -18,7 +19,6 @@ export const AddPanel = (props: Props) => {
   const [error, setError] = useState<string>('');
 
   const postProduct = async (body: FinanceProductRecord) => {
-    console.log(props.savings);
     try {
       const res = await fetch(apiUrl + '/finance-product/', {
       method: 'POST',
@@ -51,19 +51,19 @@ export const AddPanel = (props: Props) => {
     e.preventDefault();
 
     if (!value || value <= 0) {
-      setError('Nie prawidłowa wartość');
+      setError(props.language.addPanel.wrongValue);
       return;
     };
     if (value > props.savings - FinancialOperations.financialCushion(props.monthlyExpanse)) {
-      setError('Brak wolnych oszczędności');
+      setError(props.language.addPanel.noSpareSavings);
       return;
     };
     if (value < props.minContribution) {
-      setError('Za mały wkład finansowy');
+      setError(props.language.addPanel.littleContribution);
       return;
     };
     if (value > props.maxContribution) {
-      setError('Za duży wkład finansowy');
+      setError(props.language.addPanel.toMuchContribution);
       return;
     };
 
@@ -93,7 +93,7 @@ export const AddPanel = (props: Props) => {
         />
       <input 
         type="submit" 
-        value="Dodaj"
+        value={props.language.addUserForm.formButton}
         className="button"
         onClick={handleClick}
         />

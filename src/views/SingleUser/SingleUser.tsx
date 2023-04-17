@@ -10,7 +10,11 @@ import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import { DeleteUser } from "../../components/User/DeleteUser/DeleteUser";
 import { apiUrl } from "../../config/api"
 
-export const SingleUser = () => {
+type Props = {
+  language: any,
+}
+
+export const SingleUser = (props: Props) => {
   const [user, setUser] = useState<User | null>(null);
   const {id}  = useParams()
 
@@ -32,9 +36,9 @@ export const SingleUser = () => {
     return <Loading/>
   }
   return <>
-    <ViewTitle title={'Panel użytkownika'}/>
+    <ViewTitle title={props.language.singleUser.title}/>
     <UserRecordPersonal user={user}/>
-    <DeleteUser id={String(id)} name={user.name}/>
-    {user.financeId ? <UserRecordFinance financeId={user.financeId}/> : <AddFinanceForm id={id}/>}
+    <DeleteUser id={String(id)} name={user.name} language={props.language}/>
+    {user.financeId ? <UserRecordFinance financeId={user.financeId} language={props.language}/> : <AddFinanceForm id={id} language={props.language}/>}
   </>
 }

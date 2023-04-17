@@ -7,6 +7,7 @@ type Props = {
   salary: number,
   expanse: number,
   savings: number
+  language: any,
 }
 
 export const FinanceRecord = (props: Props) => {
@@ -14,17 +15,17 @@ export const FinanceRecord = (props: Props) => {
   return (
     <ul className="FinanceRecord">
       <FinanceRow 
-        title="Miesięczne zarobki" 
+        title={props.language.financeRecord.earnings} 
         data={props.salary}
       />
       <FinanceRow 
-        title="Miesięczne wydatki" 
+        title={props.language.financeRecord.expanses} 
         data={props.expanse}
       />
       <FinanceRow 
         title={props.savings >= financialCushion ? 
-          "Wolne oszczędności" : 
-          `Przed inwestycjami należy odłożyć oszczędności w wysokości: ${financialCushion} zł pozostało:`
+          props.language.financeRecord.savings : 
+          `${props.language.financeRecord.beforeInvesting} ${financialCushion} zł ${props.language.financeRecord.left}`
         } 
         data={props.savings > financialCushion ?
           props.savings - financialCushion : 
@@ -32,7 +33,7 @@ export const FinanceRecord = (props: Props) => {
         } 
       />
       <FinanceRow 
-        title="Finansowa poduszka bezpieczeństwa" 
+        title={props.language.financeRecord.financialCushion} 
         data={financialCushion}
       />
     </ul>

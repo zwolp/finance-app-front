@@ -6,13 +6,14 @@ import './FinanceProductsList.scss'
 type Props = {
   list: FinanceProductRecord[] | null,
   userSavings: number,
+  language: any,
 };
 
 export const FinanceProductsList = (props: Props) => {
   
   return (
     <div className="FinanceProductsList">
-      {props.list?.length ? <h4>Aktywne produkty</h4> : null}
+      {props.list?.length ? <h4>{props.language.financeProductsList.activeProducts}</h4> : null}
       <ul>
       {props.list && props.list.map((obj, i) => (
         <li key={i}>
@@ -23,6 +24,7 @@ export const FinanceProductsList = (props: Props) => {
             startDate={obj.startDate}
             resources={obj.resources}
             userSavings={props.userSavings}
+            language={props.language}
             />
         </li>))}
       </ul>

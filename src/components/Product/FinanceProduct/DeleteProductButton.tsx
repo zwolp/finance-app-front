@@ -7,6 +7,7 @@ type Props = {
   productId: string,
   resources: number,
   userSavings: number,
+  language: any,
 }
 
 export const DeleteProductButton = (props: Props) => {
@@ -36,7 +37,7 @@ export const DeleteProductButton = (props: Props) => {
   }
 
   const handleClick = async () => {
-    const confirm = window.confirm(`Czy na pewno chcesz usunąć ten produkt?`)
+    const confirm = window.confirm(props.language.deleteProduct.confirmMessage)
     if (confirm) {
       await deleteProduct();
       await changeSavings({savings: props.userSavings + props.resources})
@@ -50,7 +51,7 @@ export const DeleteProductButton = (props: Props) => {
       className="DeleteProductButton"
       onClick={handleClick}
       >
-      Zrezygnuj
+      {props.language.deleteProduct.button}
     </button>
   )
 };

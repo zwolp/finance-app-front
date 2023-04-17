@@ -19,7 +19,6 @@ export const ForecastSavings = (props: Props) => {
       )) : 0;
   
   const summaryProfit = depositProfit ? depositProfit.reduce((prev, curr) => prev + curr, 0) : 0;
-  console.log(summaryProfit);
  
   return <div>
     <h4>{props.title}</h4>

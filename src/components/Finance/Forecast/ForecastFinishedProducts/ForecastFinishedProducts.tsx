@@ -5,6 +5,7 @@ import { ForecastFinishedProductRow } from "./ForecastFinishedProductRow";
 type Props = {
   title: string,
   finishedProducts: finishedProduct[];
+  language: any,
 }
 
 export const ForecastProducts = (props: Props) => {
@@ -13,7 +14,10 @@ export const ForecastProducts = (props: Props) => {
     <ul>
       {props.finishedProducts.map((product, i) => (
       <li key={product.name + i}>
-        <ForecastFinishedProductRow finishedProduct={product}/>
+        <ForecastFinishedProductRow 
+          finishedProduct={product}
+          language={props.language}
+          />
       </li>))}
     </ul>
   </div>

@@ -13,6 +13,7 @@ type Props = {
   startDate: string,
   resources: number,
   userSavings: number,
+  language: any,
 }
 
 export const ProductOfUser = (props: Props) => {
@@ -36,10 +37,10 @@ export const ProductOfUser = (props: Props) => {
   return <>
     <div className="product">
       <p><span>{product.name}</span></p>
-      <p>Produkt finansowy założony w dniu <span>{currentDateToSend(new Date(props.startDate))}</span>, planowane zakończenie <span>{currentDateToSend(endDate(new Date(props.startDate), product.durationInDays))}</span></p>
-      <p><span>Wkład finansowy</span> {props.resources}</p>
-      <p><span>Oczekiwany zwrot</span> {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate) + props.resources}</p>
+      <p>{props.language.productOfUser.startProduct}<span>{currentDateToSend(new Date(props.startDate))}</span>, {props.language.productOfUser.finishProduct}<span>{currentDateToSend(endDate(new Date(props.startDate), product.durationInDays))}</span></p>
+      <p><span>{props.language.productOfUser.resources}</span> {props.resources}</p>
+      <p><span>{props.language.productOfUser.financialReturn}</span> {FinancialOperations.depositProfit(props.resources, product.durationInDays, product.annualInterestRate) + props.resources}</p>
     </div>
-    <DeleteProductButton id={props.id} productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings}/>
+    <DeleteProductButton id={props.id} productId={props.productId} financeId={props.financeId} resources={props.resources} userSavings={props.userSavings} language={props.language}/>
   </>
 }

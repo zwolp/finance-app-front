@@ -7,6 +7,7 @@ type Props = {
   financeId: string,
   savings: number,
   monthlyExpanse: number,
+  language: any,
 }
 
 export const ProductRow = (props: Props) => {
@@ -22,9 +23,9 @@ export const ProductRow = (props: Props) => {
     <li>
       <div onClick={handleClick}>
         <p>{name}</p>
-        <p>{annualInterestRate} % w skali roku</p>
-        <p>Okres {durationInDays} dni</p>
-        <p>Wkład od {minContribution} zł do {maxContribution} zł</p>
+        <p>{annualInterestRate} % {props.language.productRow.perYear}</p>
+        <p>{props.language.productRow.period} {durationInDays} {props.language.productRow.days}</p>
+        <p>{props.language.productRow.contribution} {minContribution} zł - {maxContribution} zł</p>
       </div>
       {displayAddPanel && 
       <AddPanel 
@@ -34,6 +35,7 @@ export const ProductRow = (props: Props) => {
         monthlyExpanse={props.monthlyExpanse}
         minContribution={props.product.minContribution}
         maxContribution={props.product.maxContribution}
+        language={props.language}
     />}
     </li>
   </>

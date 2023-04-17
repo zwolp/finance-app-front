@@ -11,6 +11,7 @@ type Props = {
   expanse: number,
   savings: number,
   financeId: string,
+  language: any,
 };
 
 export const Forecast = (props: Props) => { 
@@ -55,13 +56,13 @@ export const Forecast = (props: Props) => {
   return <div className="Forecast">
     <form onSubmit={handleForm}>
       <input type="date" value={date} onChange={e => handleDate(e.target.value)}/>
-      <input type="submit" value="Prognozuj" className="button"/>
+      <input type="submit" value={props.language.forecast.button} className="button"/>
     </form>
 
     {displayForecast && 
       <div className="forecast-info">
         <ForecastSavings 
-          title="Prognozowane oszczędności"
+          title={props.language.forecast.forecastSavings}
           expanse={props.expanse} 
           salary={props.salary}
           savings={props.savings}
@@ -70,7 +71,8 @@ export const Forecast = (props: Props) => {
           />
         { finishedProducts.length > 0 &&
           <ForecastProducts
-            title="Zakończone produkty"
+            language={props.language}
+            title={props.language.forecast.forecastProducts}
             finishedProducts={finishedProducts.map(product => ({
               name: product.name,
               endDate: currentDateToSend((endDate(new Date(product.startDate), product.duration))),

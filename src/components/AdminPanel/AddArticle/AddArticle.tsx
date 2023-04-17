@@ -12,6 +12,7 @@ const obj: Omit<Article, 'id'> = {
 
 type Props = {
   hide: () => void,
+  language: any,
 }
 
 export const AddArticle = (props: Props) => {
@@ -38,9 +39,9 @@ export const AddArticle = (props: Props) => {
 
   return <div className="AddArticle">
   <form onSubmit={saveArticle}>
-    <h4>Nowy artykuł</h4>
+    <h4>{props.language.addArticle.newArticle}</h4>
     <label>
-      <p>Tytuł artykułu:</p>
+      <p>{props.language.currentArticles.title}</p>
       <input 
         type="text" 
         name="title" 
@@ -50,7 +51,7 @@ export const AddArticle = (props: Props) => {
       />
     </label>
     <label>
-      <p>Treść artykułu:</p>
+      <p>{props.language.addArticle.contents}</p>
       <textarea 
         name="description" 
         cols={30} 
@@ -60,7 +61,7 @@ export const AddArticle = (props: Props) => {
         onChange={e => setArticle({...article, description: e.target.value})}
       />
     </label>
-    <button className="button">Dodaj</button>
+    <button className="button">{props.language.addUserForm.formButton}</button>
   </form>
 </div>
 }

@@ -6,7 +6,11 @@ import { Error } from "../../../components/common/Error/Error";
 import "./ArticlesView.scss"
 import { apiUrl } from "../../../config/api";
 
-export const ArticlesView = () => {
+type Props = {
+  language: any,
+}
+
+export const ArticlesView = (props: Props) => {
   const [articles, setArticles] = useState<Article[] | []>([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -32,13 +36,13 @@ export const ArticlesView = () => {
     return <Loading/>
   }
   if (error) {
-    return <Error>Przepraszamy wystąpił błąd, spróbuj później</Error>
+    return <Error>{props.language.error}</Error>
   }
   return (
     <ul className="Articles">
       {articles.length > 0 ?
         articles.map(article => <li key={article.id}><ArticleRow article={article}/></li>) :
-        <p>W bazie danych nie ma jeszcze żadnych artykułów</p>
+        <p>{props.language.articlesView.emptylist}</p>
       }
     </ul>
 )}

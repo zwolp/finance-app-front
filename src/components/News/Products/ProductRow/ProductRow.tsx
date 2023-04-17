@@ -2,7 +2,8 @@ import React from "react";
 import { Product } from "types";
 
 type Props = {
-  product: Product
+  product: Product,
+  language: any,
 }
 
 export const ProductRow = (props: Props) => {
@@ -11,13 +12,13 @@ export const ProductRow = (props: Props) => {
       {props.product.name}
     </h4>
     <p className="product-annual-interest-rate">
-      <span>Oprocentowanie:</span> {props.product.annualInterestRate} % / rok
+      <span>{props.language.productRow.interestRate}:</span> {props.product.annualInterestRate} % {props.language.productRow.perYear}
     </p>
     <p className="product-duration">
-      <span>Okres trwania:</span> {props.product.durationInDays} dni
+      <span>{props.language.productRow.period}</span> {props.product.durationInDays} {props.language.productRow.days}
     </p>
     <p className="product-resources">
-      <span>Wkład finansowy:</span> od {props.product.minContribution} zł do {props.product.maxContribution} zł
+      <span>{props.language.productRow.contribution}</span> {props.product.minContribution} zł - {props.product.maxContribution} zł
     </p>
     <p className="product-description">
       {props.product.description}

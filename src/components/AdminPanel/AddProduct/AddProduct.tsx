@@ -14,6 +14,7 @@ const obj: ProductWithoutId = {
 
 type Props = {
   hide: () => void,
+  language: any,
 }
 
 export const AddProduct = (props: Props) => {
@@ -42,9 +43,9 @@ export const AddProduct = (props: Props) => {
 
   return <div className="AddProduct">
   <form>
-    <h4>Nowy produkt</h4>
+    <h4>{props.language.addProduct.newProduct}</h4>
     <label>
-      <p>Nazwa produktu:</p>
+      <p>{props.language.currentProducts.productName}</p>
       <input 
         className="name"
         type="text" 
@@ -55,7 +56,7 @@ export const AddProduct = (props: Props) => {
       />
     </label>
     <label>
-      <p>Roczne oprocentowanie:</p>
+      <p>{props.language.productRow.interestRate}</p>
       <input 
         type="number" 
         name="annualInterestRate" 
@@ -65,7 +66,7 @@ export const AddProduct = (props: Props) => {
       />
     </label>
     <label>
-      <p>Czas trwania produktu: (wyrażony w dniach)</p>
+      <p>{props.language.productRow.period} ({props.language.productRow.days})</p>
       <input 
         type="number" 
         name="durationDays" 
@@ -75,7 +76,7 @@ export const AddProduct = (props: Props) => {
       />
     </label>
     <label>
-      <p>Minimalny wkład:</p>
+      <p>{props.language.addProduct.minContribution}</p>
       <input 
         type="number" 
         name="minContribution" 
@@ -85,7 +86,7 @@ export const AddProduct = (props: Props) => {
       />
     </label>
     <label>
-      <p>Maksymalny wkład:</p>
+      <p>{props.language.addProduct.maxContribution}</p>
       <input 
         type="number" 
         name="maxContribution" 
@@ -95,7 +96,7 @@ export const AddProduct = (props: Props) => {
       />
     </label>
     <label className="description">
-      <p>Opis produktu:</p>
+      <p>{props.language.description}</p>
       <textarea 
         name="description" 
         cols={30} 
@@ -105,7 +106,8 @@ export const AddProduct = (props: Props) => {
         onChange={e => setProduct({...product, description: e.target.value})}
       />
     </label>
-    <button className="button" onClick={saveProduct}>Dodaj</button>
+    <button className="button" onClick={saveProduct}>
+    {props.language.addUserForm.formButton}</button>
   </form>
 </div>
 }

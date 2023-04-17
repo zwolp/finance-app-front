@@ -4,6 +4,7 @@ import { apiUrl } from "../../../config/api";
 
 type Props = {
   id: string | undefined,
+  language: any,
 }
 
 export const AddFinanceForm = (props: Props) => {
@@ -37,18 +38,18 @@ export const AddFinanceForm = (props: Props) => {
     <div className="form-container">  
       <form onSubmit={saveFinanse}>
         <label>
-          <p>Miesięczne zarobki</p>
+          <p>{props.language.financeRecord.earnings}</p>
           <input type="number" value={finance.salary} onChange={e => {setFinance({...finance, salary: e.target.value})}}/>
         </label>
         <label>
-          <p>Oszczędności</p>
+          <p>{props.language.savings}</p>
           <input type="number" value={finance.savings} onChange={e => {setFinance({...finance, savings: e.target.value})}}/>
         </label>
         <label>
-          <p>Miesięczne wydatki</p>
+          <p>{props.language.financeRecord.expanses}</p>
           <input type="number" value={finance.monthlyExpanse} onChange={e => {setFinance({...finance, monthlyExpanse: e.target.value})}}/>
         </label>
-        <input type="submit" className="button"/>
+        <input type="submit" className="button" value={props.language.addUserForm.formButton}/>
       </form>
     </div>
   </>

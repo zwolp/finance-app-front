@@ -10,6 +10,7 @@ type Props = {
   financeId: string,
   savings: number,
   monthlyExpanse: number,
+  language: any,
 };
 
 export const ProductList = (props: Props) => {
@@ -38,13 +39,13 @@ export const ProductList = (props: Props) => {
     return <Loading/>
   }
   if (error) {
-    return <Error>Przepraszamy, wystąpił błąd</Error>
+    return <Error>{props.language.error}</Error>
   }
   if (list.length === 0) {
-    return <p>Chwilowo nie ma dostępnych produktów, spróbuj później</p>
+    return <p>{props.language.productList.emptyList}</p>
   }
   return <ul className="ProductsList">
     {list.map((obj, i) => {
-    return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse}/>})}
+    return <ProductRow key={i} financeId={props.financeId} product={obj} savings={props.savings} monthlyExpanse={props.monthlyExpanse} language={props.language}/>})}
   </ul>
 }

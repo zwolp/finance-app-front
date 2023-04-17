@@ -5,12 +5,31 @@ type Props = {
   salary: number,
   monthlyExpanses: number,
   savings: number,
+  language: any,
 }
 
 export const ChangePanel =  (props: Props) => {
   return <div className="ChangePanel">
-    <ChangePanelRow financeId={props.financeId} title="Miesięczne zarobki" value={props.salary} valueName="salary"/>
-    <ChangePanelRow financeId={props.financeId} title="Miesięczne wydatki" value={props.monthlyExpanses} valueName="monthlyExpanse"/>
-    <ChangePanelRow financeId={props.financeId} title="Oszczędności" value={props.savings} valueName="savings"/>
+    <ChangePanelRow 
+      financeId={props.financeId} 
+      title={props.language.financeRecord.earnings}
+      value={props.salary} 
+      valueName="salary"
+      buttonTitle={props.language.financeChanges.changeButton}
+    />
+    <ChangePanelRow 
+      financeId={props.financeId} 
+      title={props.language.financeRecord.earnings} 
+      value={props.monthlyExpanses} 
+      valueName="monthlyExpanse"
+      buttonTitle={props.language.financeChanges.changeButton}
+    />
+    <ChangePanelRow 
+      financeId={props.financeId} 
+      title={props.language.financeRecord.savings} 
+      value={props.savings} 
+      valueName="savings"
+      buttonTitle={props.language.financeChanges.changeButton}
+    />
   </div>
 }

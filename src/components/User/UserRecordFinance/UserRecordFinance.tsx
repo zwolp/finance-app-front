@@ -12,6 +12,7 @@ import { apiUrl } from "../../../config/api";
 
 type Props = {
   financeId: string;
+  language: any,
 }
 
 export const UserRecordFinance = (props: Props) => {
@@ -29,7 +30,7 @@ export const UserRecordFinance = (props: Props) => {
       await setLoading(false);
     } catch (e) {
       console.log(e);
-      setError('Wystąpił błąd, spróbuj później.');
+      setError(props.language.error);
       setLoading(false)
     }
   } 
@@ -63,24 +64,27 @@ export const UserRecordFinance = (props: Props) => {
           salary={finance.salary} 
           expanse={finance.monthlyExpanse} 
           savings={finance.savings}
+          language={props.language}
         />
         <FinanceChanges 
           financeId={props.financeId} 
           salary={finance.salary} 
           monthlyExpanse={finance.monthlyExpanse} 
           savings= {finance.savings}
+          language={props.language}
         />
         <Forecast
           salary={finance.salary} 
           expanse={finance.monthlyExpanse} 
           savings={finance.savings}
           financeId={props.financeId}
+          language={props.language}
         />
       </div>
-      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings}/>}
+      {financeAndProductsList && <FinanceProductsList list={financeAndProductsList} userSavings={finance.savings} language={props.language}/>}
       <div className="addProduct">
-        <button onClick={handleClick}>Dodaj produkt</button>
-        {displayProducts && <ProductList financeId={props.financeId} savings={finance.savings} monthlyExpanse={finance.monthlyExpanse}/>}
+        <button onClick={handleClick}>{props.language.admin.addProduct}</button>
+        {displayProducts && <ProductList financeId={props.financeId} savings={finance.savings} monthlyExpanse={finance.monthlyExpanse} language={props.language}/>}
       </div>
   </div>
   }

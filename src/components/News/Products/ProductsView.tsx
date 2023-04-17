@@ -6,7 +6,11 @@ import { Error } from "../../../components/common/Error/Error";
 import "./ProductsView.scss"
 import { apiUrl } from "../../../config/api";
 
-export const ProductView = () => {
+type Props = {
+  language: any,
+}
+
+export const ProductView = (props: Props) => {
   const [products, setProducts] = useState<Product[] | []>([])
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -32,13 +36,13 @@ export const ProductView = () => {
     return <Loading/>
   }
   if (error) {
-    return <Error>Przepraszamy wystąpił błąd, spróbuj później</Error>
+    return <Error>{props.language.error}</Error>
   }
   return (
     <ul className="Products">
       {products.length > 0 ?
-        products.map(product => <li key={product.id} className="product"><ProductRow product={product}/></li>) :
-        <p>W bazie danych nie ma jeszcze żadnych produktów</p>
+        products.map(product => <li key={product.id} className="product"><ProductRow product={product} language={props.language}/></li>) :
+        <p>{props.language.productList.emptylist}</p>
       }
     </ul>
   )

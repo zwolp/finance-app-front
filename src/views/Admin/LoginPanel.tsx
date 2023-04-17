@@ -4,14 +4,15 @@ import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import { apiUrl } from "../../config/api"
 
 type Props = {
-  handleLoggedAdmin: (isLogged: boolean) => void
+  handleLoggedAdmin: (isLogged: boolean) => void,
+  language: any,
 }
 
 export const LoginPanel = (props: Props) => {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [hiddenPassword, setHiddenPassword] = useState(true);
-  const [hiddenButtonText, setHiddenButtonText] = useState('Pokaż hasło');
+  const [hiddenButtonText, setHiddenButtonText] = useState(props.language.admin.showPassword);
 
   const checkAdmin = async () => {
     try {
@@ -40,28 +41,28 @@ export const LoginPanel = (props: Props) => {
   const showPassword = () => {
     if (hiddenPassword) {
       setHiddenPassword(false);
-      setHiddenButtonText('Ukryj hasło');
+      setHiddenButtonText(props.language.admin.hidePassword);
     } else {
       setHiddenPassword(true);
-      setHiddenButtonText('Pokaż hasło');
+      setHiddenButtonText(props.language.admin.showPassword);
     }
   }
 
   return <>
-    <ViewTitle title="Logowanie"/>
+    <ViewTitle title={props.language.admin.title}/>
     <div className="LoginPanel">
       <form onSubmit={handleForm}>
         <label>
-          <p>Nazwa:</p>
+          <p>{props.language.admin.name}:</p>
           <input type="text" name="name" value={name} onChange={e => setName(e.target.value)}/>
         </label>
         <label>
-          <p>Hasło:</p>
+          <p>{props.language.admin.password}</p>
           <input type={hiddenPassword ? "password" : "text"} name="password" value={password} onChange={e => setPassword(e.target.value)}/>
         </label>
         <div className="buttons">
           <div className="show-password" onClick={showPassword}>{hiddenButtonText}</div>
-          <input type="submit" className="button"/>
+          <input type="submit" className="button" value={props.language.admin.formButton}/>
         </div>
       </form>
     </div>

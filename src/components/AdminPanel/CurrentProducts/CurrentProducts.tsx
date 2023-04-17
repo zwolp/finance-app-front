@@ -6,7 +6,11 @@ import { CurrentProductRow } from "./CurrentProductRow";
 import './CurrentProducts.scss'
 import { apiUrl } from "../../../config/api"
 
-export const CurrentProducts = () => {
+type Props = {
+  language: any,
+}
+
+export const CurrentProducts = (props: Props) => {
   const [list, setList] = useState<Product[] | []>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -32,14 +36,14 @@ export const CurrentProducts = () => {
     return <Loading/>
   }
   if (error) {
-    return <Error>Przepraszamy, wystąpił błąd</Error>
+    return <Error>{props.language.error}</Error>
   }
   if (list.length === 0) {
-    return <p>Nie dodano jeszcze produktów</p>
+    return <p>{props.language.currentProducts.emptyList}</p>
   }
   return <ul className="CurrentProducts">
     {list.map((obj, i) => {
-      return <li key={i}><CurrentProductRow product={obj}/></li>
+      return <li key={i}><CurrentProductRow product={obj} language={props.language}/></li>
     })}
   </ul>
 }

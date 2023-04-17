@@ -7,9 +7,13 @@ import { CurrentArticles } from "../../components/AdminPanel/CurrentArticles/Cur
 import { ViewTitle } from "../../components/common/ViewTitle/ViewTitle";
 import './AdminPanel.scss'
 
-export const AdminPanel = () => {
+type Props = {
+  language: any,
+}
+
+export const AdminPanel = (props: Props) => {
   const [showProducts, setShowProducts] = useState(false);
-  const [buttonText, setButtonText] = useState('Produkty');
+  const [buttonText, setButtonText] = useState(props.language.products);
   const [displayNewProduct, setDisplayNewProduct] = useState(false);
   const [displayNewArticle, setDisplayNewArticle] = useState(false);
 
@@ -23,32 +27,32 @@ export const AdminPanel = () => {
   const handleShowProducts = () => {
     if (showProducts) {
       setShowProducts(false);
-      setButtonText('Produkty');
+      setButtonText(props.language.products);
     } else {
       setShowProducts(true);
-      setButtonText('Artykuły');
+      setButtonText(props.language.articles);
     }
   }
 
   return <>
-    <ViewTitle title="Panel Administratora"/>
+    <ViewTitle title={props.language.admin.titlePanel}/>
     <div className="AdminPanel">
       <button className="show-products" onClick={handleShowProducts}>{buttonText}</button>
       {
         showProducts ? <>
           <div className="container">
-            <CurrentProducts/>
+            <CurrentProducts language={props.language}/>
             <div className="add-product">
-              <DisplayButton title="Dodaj produkt" click={handleClickDisplayNewProduct}/>
-              {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct}/>}
+              <DisplayButton title={props.language.admin.addProduct} click={handleClickDisplayNewProduct}/>
+              {displayNewProduct && <AddProduct hide={handleClickDisplayNewProduct} language={props.language}/>}
             </div>
           </div>
         </> : <>
           <div className="container">
-            <CurrentArticles/>
+            <CurrentArticles language={props.language}/>
             <div className="add-article">
-              <DisplayButton title="Dodaj artukuł" click={handleClickDisplayNewArticle}/>
-              {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle}/>}
+              <DisplayButton title={props.language.admin.addArticle} click={handleClickDisplayNewArticle}/>
+              {displayNewArticle && <AddArticle hide={handleClickDisplayNewArticle} language={props.language}/>}
             </div>
           </div>
         </>

@@ -5,12 +5,13 @@ import { apiUrl } from "../../../config/api";
 type Props = {
   id: string,
   name: string,
+  language: any,
 }
 
 export const DeleteUser = (props: Props) => {
   const navigate = useNavigate();
   const deleteUser = async (id: string) => {
-    const confirm = window.confirm(`Czy na pewno chcesz usunąć użytkownika ${props.name}?`)
+    const confirm = window.confirm(props.language.deleteUser.confirmMessage + props.name + '?')
     if (confirm) {
       try {
         const res = await fetch(apiUrl + '/user/' + id, {
@@ -25,6 +26,6 @@ export const DeleteUser = (props: Props) => {
     }
   };
   return <div className="DeleteUser">
-    <button onClick={() => deleteUser(props.id)}>Usuń użytkownika</button>
+    <button onClick={() => deleteUser(props.id)}>{props.language.deleteUser.formButton}</button>
   </div>
 }

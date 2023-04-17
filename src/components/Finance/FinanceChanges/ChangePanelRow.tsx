@@ -6,6 +6,7 @@ type Props = {
   value: number,
   valueName: string,
   title: string,
+  buttonTitle: string,
 }
 
 export const ChangePanelRow = (props: Props) => {
@@ -38,7 +39,7 @@ export const ChangePanelRow = (props: Props) => {
         <button 
           onClick={() => {handleClick(props.valueName, changeValue)}}
         >
-          zapisz
+          {props.buttonTitle}
         </button>
       </div>
     </label>

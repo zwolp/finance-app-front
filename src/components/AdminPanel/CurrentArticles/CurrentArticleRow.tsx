@@ -6,14 +6,15 @@ import { apiUrl } from "../../../config/api";
 
 type Props = {
   article: Article
+  language: any,
 }
 
 export const CurrentArticleRow = (props: Props) => {
   const [info, setInfo] = useState('')
   const [displayDescription, setDisplayDescription] = useState(false)
-  const [buttonText, setButtonText] = useState('Pokaż treść')
-  const showText = 'Pokaż treść';
-  const hideText = 'Ukryj treść';
+  const [buttonText, setButtonText] = useState(props.language.currentArticles.showText)
+  const showText = props.language.currentArticles.showText;
+  const hideText = props.language.currentArticles.hideText;
 
   const display = () => {
     if (displayDescription) {
@@ -33,23 +34,23 @@ export const CurrentArticleRow = (props: Props) => {
       return res
     } catch (e) {
       console.log(e);
-      setInfo('Przepraszamy wystąpił błąd, spróbuj później');
+      setInfo(props.language.error);
     }
   }
 
   const handleDeleteButton = () => {
     deleteArticle(props.article.id);
-    setInfo(`Artykuł o tytule ${props.article.title} został usunięty`)
+    setInfo(`${props.language.currentArticles.articleTitle}  ${props.article.title} ${props.language.currentProducts.deleted}`)
   }
 
   return <>
     <div className="CurrentArticleRow">
-      <p><span>Data dodania:</span> {currentDateToSend(new Date(props.article.date))}</p>
-      <p><span>Tytuł:</span> {props.article.title}</p>
+      <p><span>{props.language.currentArticles.date}</span> {currentDateToSend(new Date(props.article.date))}</p>
+      <p><span>{props.language.currentArticles.title}</span> {props.article.title}</p>
       {displayDescription ? <p>{props.article.description}</p> :null}
       <div className="button-container">
         <button onClick={display}>{buttonText}</button>
-        <button onClick={handleDeleteButton}>Usuń</button>
+        <button onClick={handleDeleteButton}>{props.language.delete}</button>
       </div>
     </div>
     <p className="info">{info}</p>

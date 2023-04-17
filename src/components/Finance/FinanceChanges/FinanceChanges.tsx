@@ -7,6 +7,7 @@ type Props = {
   salary: number,
   monthlyExpanse: number,
   savings: number,
+  language: any,
 }
 
 export const FinanceChanges = (props: Props) => {
@@ -18,8 +19,8 @@ export const FinanceChanges = (props: Props) => {
   
   return (
     <div className="FinanceChanges">
-      <button onClick={handleClick}>Zmiana w finansach</button>
-      {displayChanges && <ChangePanel financeId={props.financeId} salary={props.salary} monthlyExpanses={props.monthlyExpanse} savings={props.savings}/>}
+      <button onClick={handleClick}>{props.language.financeChanges.button}</button>
+      {displayChanges && <ChangePanel financeId={props.financeId} salary={props.salary} monthlyExpanses={props.monthlyExpanse} savings={props.savings} language={props.language}/>}
     </div>
   )
 }
